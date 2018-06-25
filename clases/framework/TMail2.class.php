@@ -11,6 +11,7 @@
 
 class TMail2{
 	private $permitir = true;
+	private $sandbox = false;
 	private $destinos;
 	private $origen;
 	private $contestarA;
@@ -25,7 +26,6 @@ class TMail2{
 		$this->adjuntos = array();
 		
 		$this->permitir = true;
-		$this->pruebas = true;
 	}
 	
 	public function setPermitir($band = true){
@@ -49,7 +49,7 @@ class TMail2{
 	}
 
 	public function addDestino($mail = "", $nombre = ""){
-		if ($this->pruebas)
+		if ($this->sandbox)
 			array_push($this->destinos, array("nombre" => "Pruebas del sistema", "correo" => "hugooluisss@gmail.com"));
 		else
 			array_push($this->destinos, array("nombre" => $nombre, "correo" => $mail));
@@ -87,19 +87,27 @@ class TMail2{
 			#por cada adjunto
 			foreach($this->adjuntos as $adjunto){
 				$msg .= '--PHP-mixed-'.$random_hash.$salto;
-		
-				$msg .= 'Content-Type: application/image-jpeg; name="'.$adjunto['nombre'].'"'.$salto;
+				$msg .= 'Content-Type: '.mime_content_type($adjunto['ruta']).'; name="'.$adjunto['nombre'].'"'.$salto;
+				
+				/*
+				if ($adjunto['type'] <> '')
+					$msg .= 'Content-Type: '.$adjunto['type'].'; name="'.$adjunto['nombre'].'"'.$salto;
+				else
+					$msg .= 'Content-Type: application/image-jpeg; name="'.$adjunto['nombre'].'"'.$salto;
+				*/
+				
 				$msg .= 'Content-Transfer-Encoding: base64'.$salto;
 				$msg .= 'Content-Disposition: attachment'.$salto;
 		
 				$msg .= chunk_split(base64_encode(file_get_contents($adjunto['ruta'])));
 				$msg .= '--PHP-mixed-'.$random_hash.'--'.$salto;
 			}
-			//file_put_contents("repositorio/email.txt", $msg);
+			
 			$emailBand = true;
-			foreach($this->destinos as $destino)
+			foreach($this->destinos as $destino){
 				if ($emailBand)
 					$emailBand = imap_mail($destino["correo"], $this->getTema(), $msg, $headers);
+			}
 				
 			return $emailBand;
 		}

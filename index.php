@@ -1,8 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 #variables
-$ini = array();
-$ini = parse_ini_file('aplicacion.ini', true);
+include("aplicacion.php");
 date_default_timezone_set("UTC");
 ini_set('display_errors', '0');
 
@@ -11,9 +10,10 @@ if($_SERVER['SERVER_PORT'] == 80 && $ini['sistema']['ssl'] == 'si')
 
 include('librerias/funciones.php');
 include_once("config.php");
+
 define("MODULO_DEFECTO", 'inicio');
 define("MODULO_SESION_INICIADA", 'panelPrincipal');
-define("SISTEMA", $ini['sistema']['nombreAplicacion']);
+define("SISTEMA", $ini['sistema']['acronimoEmpresa']);
 
 session_start();
 session_name(SISTEMA);
@@ -23,18 +23,11 @@ $modulo = $_GET['mod'] == ''?(isset($sesion['usuario'])?MODULO_SESION_INICIADA:M
 header('Content-Type: text/html; charset=UTF-8');
 setlocale(LC_CTYPE, "es_ES");
 date_default_timezone_set("America/Mexico_City");
+
 #librerias
-define('ADODB_ERROR_LOG_DEST','errors.log');
-define('ADODB_ERROR_LOG_TYPE',2);
-//include('librerias/adodb/adodb-errorhandler.inc.php');
-//include('librerias/adodb/adodb.inc.php');
-require_once('librerias/phpMailer/PHPMailerAutoload.php');
 require('librerias/fpdf/fpdf.php');
 require('librerias/fpdf/tfpdf.php');
-require('librerias/upload/uploadHandler.php');
-require('librerias/bmptojpg.php');
-//require('librerias/excelRead/reader.php');
-require_once('librerias/pushbots/PushBots.class.php');
+require('librerias/pushbots/PushBots.class.php');
 
 ini_set("include_path", ini_get("include_path").PATH_SEPARATOR.dirname(__FILE__)."/librerias/pear/");
 includeDir("clases/framework/");
@@ -100,12 +93,13 @@ $datosPlantilla = array(
 	"objModulo" => $objModulo,
 	"scriptsJS" => $objModulo->getScriptsJS(),
 	"usuario" => $userSesion,
+	"inisistema" => $ini['sistema'],
 	"url" => $ini['sistema']['url']);
 
 foreach($_GET as $indice => $valor){
-	$_GET[$indice] = ereg_replace('\\"', "",$_GET[$indice]);
-	$_GET[$indice] = stripslashes($_GET[$indice]);
-	$_GET[$indice] = ereg_replace("'", "''", $_GET[$indice]);
+	#$_GET[$indice] = ereg_replace('\\"', "",$_GET[$indice]);
+	#$_GET[$indice] = stripslashes($_GET[$indice]);
+	#$_GET[$indice] = ereg_replace("'", "''", $_GET[$indice]);
 }
 	
 foreach($_POST as $indice => $valor){

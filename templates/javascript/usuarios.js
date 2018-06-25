@@ -1,5 +1,7 @@
 $(document).ready(function(){
 	getLista();
+	$("#txtNacimiento").datepicker({ dateFormat: 'yy-mm-dd' });
+	$("#txtFechaIngreso").datepicker({ dateFormat: 'yy-mm-dd' });
 	
 	$("#panelTabs li a[href=#add]").click(function(){
 		$("#frmAdd").get(0).reset();
@@ -14,9 +16,26 @@ $(document).ready(function(){
 	$("#frmAdd").validate({
 		debug: true,
 		rules: {
-			txtEmail: "required",
+			txtEmail: {
+				required: true,
+				email: true,
+				remote: {
+					url: "cusuarios",
+					type: "post",
+					data: {
+						action: "validaUsuario",
+						usuario: function(){
+							return $("#id").val()
+						}
+					}
+				}
+			},
 			txtPass: "required",
-			txtTelefono: "required"
+			txtNombre: "required",
+			txtApellidos: "required",
+			selUnidad: "required",
+			selPuesto: "required",
+			selPerfil: "required"
 		},
 		wrapper: 'span', 
 		submitHandler: function(form){
@@ -25,11 +44,17 @@ $(document).ready(function(){
 			obj.add({
 				id: $("#id").val(), 
 				nombre: $("#txtNombre").val(), 
+				apellidos: $("#txtApellidos").val(), 
 				email: $("#txtEmail").val(),
 				pass: $("#txtPass").val(),
+				nacimiento: $("#txtNacimiento").val(),
+				numemp: $("#txtNumEmp").val(),
 				perfil: $("#selPerfil").val(),
-				telefono: $("#txtTelefono").val(),
-				direccion: $("#txtDireccion").val(),
+				unidad: $("#selUnidad").val(),
+				puesto: $("#selPuesto").val(),
+				imss: $("#txtIMSS").val(),
+				rfc: $("#txtRFC").val(),
+				ingreso: $("#txtFechaIngreso").val(),
 				fn: {
 					after: function(datos){
 						if (datos.band){
@@ -47,7 +72,7 @@ $(document).ready(function(){
     });
 		
 	function getLista(){
-		$.get("listaUsuarios", function( data ) {
+		$.get("listausuarios", function( data ) {
 			$("#dvLista").html(data);
 			
 			$("[action=eliminar]").click(function(){
@@ -66,11 +91,17 @@ $(document).ready(function(){
 				
 				$("#id").val(el.idUsuario);
 				$("#txtNombre").val(el.nombre);
-				$("#txtDireccion").val(el.direccion);
+				$("#txtApellidos").val(el.apellidos);
+				$("#txtNacimiento").val(el.nacimiento);
 				$("#txtEmail").val(el.email);
 				$("#txtPass").val(el.pass);
-				$("#selPerfil").val(el.idPerfil);
-				$("#txtTelefono").val(el.telefono);
+				$("#txtNumEmp").val(el.numemp);
+				$("#selUnidad").val(el.idUnidad);
+				$("#selPuesto").val(el.idPuesto);
+				$("#txtIMSS").val(el.imss);
+				$("#txtRFC").val(el.rfc);
+				$("#txtFechaIngreso").val(el.fechaingreso);
+				
 				$('#panelTabs a[href="#add"]').tab('show');
 			});
 			
@@ -91,67 +122,4 @@ $(document).ready(function(){
 			});
 		});
 	}
-	
-	function getListaSuscripciones(){
-		$.post("listaSuscripciones", {
-			"usuario": $("#winSuscripciones").attr("usuario")
-		}, function(data){
-			$("#winSuscripciones").find("#dvListaSuscripciones").html(data);
-			
-			$("#dvListaSuscripciones").find("[action=eliminar]").click(function(){
-				if(confirm("¿Seguro?")){
-					var el = $(this);
-					var obj = new TSuscripcion;
-					obj.del({
-						id: el.attr("identificador"), 
-						fn: {
-							after: function(data){
-								getListaSuscripciones();
-							}
-						}
-					});
-				}
-			});
-		});
-	}
-	$("#winSuscripciones").on('show.bs.modal', function(e){
-		getListaSuscripciones();
-	});
-	
-	$("#winAddSuscripciones").on('show.bs.modal', function(e){
-		$("#winSuscripciones").modal("hide");
-	});
-	
-	$("#winAddSuscripciones").on('hidden.bs.modal', function(e){
-		$("#winSuscripciones").modal();
-	});
-	
-	$("#frmAddSuscripcion").validate({
-		debug: true,
-		rules: {
-			selMembresia: "required",
-			txtMetodoPago: "required"
-		},
-		wrapper: 'span', 
-		submitHandler: function(form){
-		
-			var obj = new TSuscripcion;
-			obj.add({
-				cliente: $("#winSuscripciones").attr("usuario"), 
-				membresia: $("#selMembresia").val(),
-				referencia: $("#txtReferencia").val(), 
-				metodopago: $("#txtMetodoPago").val(),
-				fn: {
-					after: function(datos){
-						if (datos.band){
-							$("#winAddSuscripciones").modal("hide");
-						}else{
-							alert("No se pudo agregar la suscripcion");
-						}
-					}
-				}
-			});
-        }
-
-    });
 });

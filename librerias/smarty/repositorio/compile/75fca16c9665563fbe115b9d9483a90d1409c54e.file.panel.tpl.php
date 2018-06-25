@@ -1,32 +1,33 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-01-25 10:39:26
+<?php /* Smarty version Smarty-3.1.11, created on 2018-05-09 09:19:32
          compiled from "templates/plantillas/modulos/usuarios/panel.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2655053305a58ca7d90ec17-23576126%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:14663439385a870948253c56-23603944%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '75fca16c9665563fbe115b9d9483a90d1409c54e' => 
     array (
       0 => 'templates/plantillas/modulos/usuarios/panel.tpl',
-      1 => 1516898365,
+      1 => 1525875551,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2655053305a58ca7d90ec17-23576126',
+  'nocache_hash' => '14663439385a870948253c56-23603944',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5a58ca7d9a5d33_01702156',
+  'unifunc' => 'content_5a8709482b36c6_72071313',
   'variables' => 
   array (
     'tipos' => 0,
     'key' => 0,
     'item' => 0,
-    'PAGE' => 0,
+    'unidades' => 0,
+    'puestos' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a58ca7d9a5d33_01702156')) {function content_5a58ca7d9a5d33_01702156($_smarty_tpl) {?><div class="row">
+<?php if ($_valid && !is_callable('content_5a8709482b36c6_72071313')) {function content_5a8709482b36c6_72071313($_smarty_tpl) {?><div class="row">
 	<div class="col-sm-12">
 		<h1 class="page-header">Administración de usuarios</h1>
 	</div>
@@ -67,9 +68,51 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="txtNombre" class="col-sm-3 control-label">Nombre completo</label>
+						<label for="selUnidad" class="col-sm-3 control-label">Unidad</label>
+						<div class="col-sm-6">
+							<select class="form-control" id="selUnidad" name="selUnidad">
+								<?php  $_smarty_tpl->tpl_vars['item'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['item']->_loop = false;
+ $_smarty_tpl->tpl_vars['key'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['unidades']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['item']->key => $_smarty_tpl->tpl_vars['item']->value){
+$_smarty_tpl->tpl_vars['item']->_loop = true;
+ $_smarty_tpl->tpl_vars['key']->value = $_smarty_tpl->tpl_vars['item']->key;
+?>
+									<option value="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['item']->value;?>
+
+								<?php } ?>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="selPuesto" class="col-sm-3 control-label">Puestos</label>
+						<div class="col-sm-6">
+							<select class="form-control" id="selPuesto" name="selPuesto">
+								<?php  $_smarty_tpl->tpl_vars['item'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['item']->_loop = false;
+ $_smarty_tpl->tpl_vars['key'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['puestos']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['item']->key => $_smarty_tpl->tpl_vars['item']->value){
+$_smarty_tpl->tpl_vars['item']->_loop = true;
+ $_smarty_tpl->tpl_vars['key']->value = $_smarty_tpl->tpl_vars['item']->key;
+?>
+									<option value="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['item']->value;?>
+
+								<?php } ?>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="txtNombre" class="col-sm-3 control-label">Nombre</label>
 						<div class="col-sm-8">
 							<input class="form-control" id="txtNombre" name="txtNombre" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="txtApellidos" class="col-sm-3 control-label">Apellidos</label>
+						<div class="col-sm-8">
+							<input class="form-control" id="txtApellidos" name="txtApellidos" />
 						</div>
 					</div>
 					<div class="form-group">
@@ -85,16 +128,29 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="txtTelefono" class="col-sm-3 control-label">Teléfono</label>
-						<div class="col-sm-4">
-							<input class="form-control" id="txtTelefono" name="txtTelefono" type="tel" />
-							<span class="help-block">Incluye el código del país</span>
+						<label for="txtNacimiento" class="col-sm-3 control-label">Fecha de Nacimiento</label>
+						<div class="col-sm-2">
+							<input class="form-control" id="txtNacimiento" name="txtNacimiento" type="text" readonly="true" placeholder="YYYY-mm-dd"/>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="txtDireccion" class="col-sm-3 control-label">Dirección</label>
-						<div class="col-sm-9">
-							<textarea rows="4" id="txtDireccion" name="txtDireccion" class="form-control"></textarea>
+						<label for="txtNumEmp" class="col-sm-3 control-label">Número de empleado</label>
+						<div class="col-sm-3">
+							<input class="form-control" id="txtNumEmp" name="txtNumEmp" type="text"/>
+						</div>
+						<label for="txtFechaIngreso" class="col-sm-3 control-label">Fecha de ingreso</label>
+						<div class="col-sm-3">
+							<input class="form-control" id="txtFechaIngreso" name="txtFechaIngreso" type="text"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="txtIMSS" class="col-sm-3 control-label">Número IMSS</label>
+						<div class="col-sm-3">
+							<input class="form-control" id="txtIMSS" name="txtIMSS" type="text"/>
+						</div>
+						<label for="txtRFC" class="col-sm-3 control-label">RFC</label>
+						<div class="col-sm-3">
+							<input class="form-control" id="txtRFC" name="txtRFC" type="text"/>
 						</div>
 					</div>
 				</div>
@@ -106,7 +162,4 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 			</div>
 		</form>
 	</div>
-</div>
-
-<?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['PAGE']->value['rutaModulos']).("modulos/usuarios/winSuscripciones.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
-<?php }} ?>
+</div><?php }} ?>

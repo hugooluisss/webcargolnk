@@ -63,7 +63,7 @@ class TModulo{
 		if ($this->idModulo == '')
 			return false;
 		
-		if ($_POST['movil'] == 1) return false;
+		if ($_POST['movil'] == 1 or $_POST['movil'] == true) return false;
 		
 		return $this->seguridad === true or $this->seguridad == 1;
 	}

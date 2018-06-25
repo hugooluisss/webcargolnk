@@ -22,10 +22,24 @@
 					<input class="form-control" id="txtCorreo" name="txtCorreo" type="email" />
 				</div>
 			</div>
-			<div class="form-group">
-				<label for="txtTelefono" class="col-md-4 control-label">Teléfono</label>
+			<div class="form-group has-feedback">
+				<label for="selPais" class="col-md-4 control-label">País</label>
 				<div class="col-md-8">
-					<input class="form-control" id="txtTelefono" name="txtTelefono" type="tel" />
+					<select class="form-control" id="selPais" name="selPais">
+						{foreach from=$paises item="row" key="key"}
+							<option value="{$row}">{$key}</option>
+						{/foreach}
+					</select>
+				</div>
+			</div>
+			<div class="form-group has-feedback">
+				<label for="txtTelefono" class="col-md-4 control-label">Teléfono celular</label>
+				<div class="col-md-8">
+					<div class="input-group">
+						<span class="input-group-addon" id="code"></span>
+						<input type="tel" class="form-control" placeholder="Teléfono" id="txtTelefono" name="txtTelefono" type="tel">
+						<span class="glyphicon glyphicon-phone form-control-feedback"></span>
+					</div>
 				</div>
 			</div>
 			<div class="form-group">
@@ -49,6 +63,7 @@
 			<div class="form-group">
 				<div class="row">
 					<div class="col-xs-12 text-right">
+						<a href="index.php" class="btn btn-link">Iniciar sesión</a>
 						<button type="submit" class="btn btn-primary">Registrarme</button>
 					</div>
 				</div>

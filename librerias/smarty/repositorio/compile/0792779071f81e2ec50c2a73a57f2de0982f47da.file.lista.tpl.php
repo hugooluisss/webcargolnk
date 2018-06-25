@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-01-25 10:39:28
+<?php /* Smarty version Smarty-3.1.11, created on 2018-03-06 09:57:20
          compiled from "templates/plantillas/modulos/usuarios/lista.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:18869351805a58cbf2b8ab73-55828561%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:9237483075a87154fa33d51-27733704%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0792779071f81e2ec50c2a73a57f2de0982f47da' => 
     array (
       0 => 'templates/plantillas/modulos/usuarios/lista.tpl',
-      1 => 1516898034,
+      1 => 1520351836,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '18869351805a58cbf2b8ab73-55828561',
+  'nocache_hash' => '9237483075a87154fa33d51-27733704',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5a58cbf2bb83f5_02432537',
+  'unifunc' => 'content_5a87154faacd01_65157903',
   'variables' => 
   array (
     'lista' => 0,
@@ -24,13 +24,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a58cbf2bb83f5_02432537')) {function content_5a58cbf2bb83f5_02432537($_smarty_tpl) {?><div class="box">
+<?php if ($_valid && !is_callable('content_5a87154faacd01_65157903')) {function content_5a87154faacd01_65157903($_smarty_tpl) {?><div class="box">
 	<div class="box-body" style="width: 100%; overflow: auto">
 		<table id="tblUsuarios" class="table table-bordered table-hover">
 			<thead>
 				<tr>
 					<th>Id</th>
 					<th>Nombre</th>
+					<th>Email</th>
 					<th>Perfil</th>
 					<th>&nbsp;</th>
 				</tr>
@@ -44,15 +45,14 @@ $_smarty_tpl->tpl_vars["row"]->_loop = true;
 					<tr>
 						<td><?php echo $_smarty_tpl->tpl_vars['row']->value['idUsuario'];?>
 </td>
-						<td><?php echo $_smarty_tpl->tpl_vars['row']->value['nombre'];?>
+						<td><b><?php echo $_smarty_tpl->tpl_vars['row']->value['nombre'];?>
+</b> <?php echo $_smarty_tpl->tpl_vars['row']->value['apellidos'];?>
+</td>
+						<td><?php echo $_smarty_tpl->tpl_vars['row']->value['email'];?>
 </td>
 						<td><?php echo $_smarty_tpl->tpl_vars['row']->value['tipo'];?>
 </td>
 						<td style="text-align: right">
-							<?php if ($_smarty_tpl->tpl_vars['row']->value['idPerfil']==2){?>
-								<button type="button" class="btn btn-primary btn-xs" action="suscripciones" title="Suscripciones" datos='<?php echo $_smarty_tpl->tpl_vars['row']->value['json'];?>
-' data-toggle="modal" data-target="#winSuscripciones"><i class="fa fa-star"></i></button>
-							<?php }?>
 							<button type="button" class="btn btn-primary btn-xs" action="modificar" title="Modificar" datos='<?php echo $_smarty_tpl->tpl_vars['row']->value['json'];?>
 '><i class="fa fa-edit"></i></button>
 							<button type="button" class="btn btn-danger btn-xs" action="eliminar" title="Eliminar" usuario="<?php echo $_smarty_tpl->tpl_vars['row']->value['idUsuario'];?>

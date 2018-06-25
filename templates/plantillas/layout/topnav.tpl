@@ -43,7 +43,7 @@
 				<nav class="navbar navbar-static-top">
 					<div class="container">
 						<div class="navbar-header">
-							<a href="#" class="navbar-brand"><b>{$PAGE.nombreAplicacion}</b>{$PAGE.objModulo->titulo}</a>
+							<a href="#" class="navbar-brand">{$PAGE.empresa}</a>
 						</div>
 						
 						{if $PAGE.sesionIniciada eq 1}
@@ -124,7 +124,7 @@
 	    <script src="{$PAGE.ruta}plugins/knob/jquery.knob.js"></script>
 	    <!-- daterangepicker -->
 	    <script src="{$PAGE.ruta}plugins/daterangepicker/daterangepicker.js"></script>
-	    <script src="{$PAGE.ruta}moment.min.js"></script>
+	    <script src="{$PAGE.ruta}plugins/moment.min.js"></script>
 	    <!-- datepicker -->
 	
 	    <!-- Bootstrap WYSIHTML5 -->

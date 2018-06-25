@@ -13,18 +13,20 @@ $(document).ready(function(){
 			
 			$("[type=submit]").prop("disabled", true);
 			
-			obj.login($("#txtUsuario").val(), $("#txtPass").val(), {
-				after: function(datos){
-					$("[type=submit]").prop("disabled", false);
-					if (datos.band)
-						location.href = "route";
-					else{
-						alert("Los datos son incorrectos, corrigelos y vuelve a intentarlo");
-					}
+			$.post('?mod=clogin&action=login', {
+				"usuario": $("#txtUsuario").val(),
+				"pass": $("#txtPass").val(),
+				"action": "login"
+			}, function(data){
+				$("[type=submit]").prop("disabled", false);
+				if (data.band)
+					location.href = "route";
+				else{
+					alert("Los datos son incorrectos, corrigelos y vuelve a intentarlo");
+					$("form:not(.filter) :input:visible:enabled:first").focus();
 				}
-			});
+			}, "json");
         }
 
     });
-	
 });

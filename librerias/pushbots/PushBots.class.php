@@ -23,7 +23,6 @@ class PushBots
 		$this->pushData['msg'] = "Notification Message";
 		$this->pushData['badge'] = "+1";
 		$this->pushData['sound'] = "ping.aiff";
-		//$this->pushData['nTitle'] = "MBC";
 		$this->pushData['payload'] = array("priority" => "high", "accColor" => 'ffffff', "inboxStyle" => true, "vib" => true);
 	}
 	

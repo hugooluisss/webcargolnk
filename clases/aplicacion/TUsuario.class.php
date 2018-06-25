@@ -9,13 +9,18 @@
 class TUsuario{
 	private $idUsuario;
 	private $idPerfil;
+	public $unidad;
+	public $puesto;
 	private $nombre;
+	private $apellidos;
 	private $email;
 	private $pass;
-	private $direccion;
+	private $nacimiento;
+	private $numemp;
+	private $imss;
+	private $rfc;
+	private $fechaingreso;
 	private $visible;
-	private $activo;
-	public $suscripcion;
 	
 	/**
 	* Constructor de la clase
@@ -25,6 +30,9 @@ class TUsuario{
 	* @param int $id identificador del objeto
 	*/
 	public function TUsuario($id = ''){
+		$this->unidad = new TUnidad;
+		$this->puesto = new TPuesto;
+		
 		$this->setId($id);		
 		return true;
 	}
@@ -45,19 +53,18 @@ class TUsuario{
 		$rs = $db->query("select * from usuario where idUsuario = ".$id);
 		
 		foreach($rs->fetch_assoc() as $field => $val){
-			$this->$field = $val;
+			switch($field){
+				case 'idPuesto':
+					$this->puesto = new TPuesto($val);
+				break;
+				case 'idUnidad':
+					$this->unidad = new TUnidad($val);
+				break;
+				default:
+					$this->$field = $val;
+			}
 		}
-		
-		$this->suscripcion = new TSuscripcion();
-		if ($this->idPerfil == 2){
-			#suscripcion
-			$sql = "select idSuscripcion from suscripcion where idUsuario = ".$this->getId()." and fechalimite > '".date("Y-m-d H:i:s")."'";
-			$rs = $db->query($sql) or errorMySQL($db, $sql);
-			$row = $rs->fetch_assoc();
-			
-			$this->suscripcion->setId($row['idSuscripcion']);
-		}
-		
+				
 		return true;
 	}
 	
@@ -155,6 +162,32 @@ class TUsuario{
 	}
 	
 	/**
+	* Establece los apellidos
+	*
+	* @autor Hugo
+	* @access public
+	* @param string $val Valor a asignar
+	* @return boolean True si se realizó sin problemas
+	*/
+	
+	public function setApellidos($val = ''){
+		$this->apellidos = $val;
+		return true;
+	}
+	
+	/**
+	* Retorna los apellidos
+	*
+	* @autor Hugo
+	* @access public
+	* @return string Texto
+	*/
+	
+	public function getApellidos(){
+		return $this->apellidos;
+	}
+	
+	/**
 	* Establece el email
 	*
 	* @autor Hugo
@@ -207,7 +240,7 @@ class TUsuario{
 	}
 	
 	/**
-	* Establece la direccion
+	* Establece la fecha de nacimiento
 	*
 	* @autor Hugo
 	* @access public
@@ -215,25 +248,25 @@ class TUsuario{
 	* @return boolean True si se realizó sin problemas
 	*/
 	
-	public function setDireccion($val = ''){
-		$this->direccion = $val;
+	public function setNacimiento($val = ''){
+		$this->nacimiento = $val == ''?date("Y-m-d"):$val;
 		return true;
 	}
 	
 	/**
-	* Retorna la direccion
+	* Retorna la fecha de nacimiento
 	*
 	* @autor Hugo
 	* @access public
 	* @return string Texto
 	*/
 	
-	public function getDireccion(){
-		return $this->direccion;
+	public function getNacimiento(){
+		return $this->nacimiento == ''?date("Y-m-d"):$this->nacimiento;
 	}
 	
 	/**
-	* Establece el teléfono
+	* Establece Número de empleado
 	*
 	* @autor Hugo
 	* @access public
@@ -241,25 +274,25 @@ class TUsuario{
 	* @return boolean True si se realizó sin problemas
 	*/
 	
-	public function setTelefono($val = ''){
-		$this->telefono = $val;
+	public function setNumEmp($val = ''){
+		$this->numemp = $val;
 		return true;
 	}
 	
 	/**
-	* Retorna el telefono
+	* Retorna el número de empleado
 	*
 	* @autor Hugo
 	* @access public
 	* @return string Texto
 	*/
 	
-	public function getTelefono(){
-		return $this->telefono;
+	public function getNumEmp(){
+		return $this->numemp;
 	}
 	
 	/**
-	* Establece al usuario como activo
+	* Establece Número de IMSS
 	*
 	* @autor Hugo
 	* @access public
@@ -267,23 +300,75 @@ class TUsuario{
 	* @return boolean True si se realizó sin problemas
 	*/
 	
-	public function setActivo(){
-		$this->activo = true;
+	public function setIMSS($val = ''){
+		$this->imss = $val;
 		return true;
 	}
 	
 	/**
-	* Retorna 1 o true si el usuario está activo
+	* Retorna el número de IMSS
 	*
 	* @autor Hugo
 	* @access public
 	* @return string Texto
 	*/
 	
-	public function getActivo(){
-		return $this->activo;
+	public function getIMSS(){
+		return $this->imss;
 	}
 	
+	/**
+	* Establece RFC
+	*
+	* @autor Hugo
+	* @access public
+	* @param string $val Valor a asignar
+	* @return boolean True si se realizó sin problemas
+	*/
+	
+	public function setRFC($val = ''){
+		$this->rfc = $val;
+		return true;
+	}
+	
+	/**
+	* Retorna el RFC
+	*
+	* @autor Hugo
+	* @access public
+	* @return string Texto
+	*/
+	
+	public function getRFC(){
+		return $this->rfc;
+	}
+	
+	/**
+	* Establece la fecha de ingreso
+	*
+	* @autor Hugo
+	* @access public
+	* @param string $val Valor a asignar
+	* @return boolean True si se realizó sin problemas
+	*/
+	
+	public function setFechaIngreso($val = ''){
+		$this->fechaingreso = $val;
+		return true;
+	}
+	
+	/**
+	* Retorna la fecha de ingreso
+	*
+	* @autor Hugo
+	* @access public
+	* @return string Texto
+	*/
+	
+	public function getFechaIngreso(){
+		return $this->fechaingreso;
+	}
+		
 	/**
 	* Guarda los datos en la base de datos, si no existe un identificador entonces crea el objeto
 	*
@@ -293,12 +378,13 @@ class TUsuario{
 	*/
 	
 	public function guardar(){
-		if ($this->getidPerfil() == '') return false;
+		if ($this->unidad->getId() == '') return false;
+		if ($this->puesto->getId() == '') return false;
 		
 		$db = TBase::conectaDB();
 		
 		if ($this->getId() == ''){
-			$rs = $db->query("INSERT INTO usuario(idPerfil, visible) VALUES(".$this->getIdPerfil().", true);");
+			$rs = $db->query("INSERT INTO usuario(idPerfil, idUnidad, idPuesto, visible) VALUES(".$this->getIdPerfil().", ".$this->unidad->getId().", ".$this->puesto->getId().", true);");
 			if (!$rs) return false;
 				
 			$this->idUsuario = $db->insert_id;
@@ -310,12 +396,17 @@ class TUsuario{
 		$sql = "UPDATE usuario
 			SET
 				idPerfil = ".$this->getIdPerfil().",
+				idUnidad = ".$this->unidad->getId().",
+				idPuesto = ".$this->puesto->getId().",
 				nombre = '".$this->getNombre()."',
+				apellidos = '".$this->getApellidos()."',
 				email = '".$this->getEmail()."',
 				pass = '".$this->getPass()."',
-				telefono = '".$this->getTelefono()."',
-				direccion = '".$this->getDireccion()."',
-				activo = ".($this->getActivo()?1:0)."
+				nacimiento = '".$this->getNacimiento()."',
+				numemp = '".$this->getNumEmp()."',
+				imss = '".$this->getIMSS()."',
+				rfc = '".$this->getRFC()."',
+				fechaingreso = '".$this->getFechaIngreso()."'
 			WHERE idUsuario = ".$this->getId();
 		$rs = $db->query($sql) or errorMySQL($db, $sql);
 			
@@ -329,7 +420,6 @@ class TUsuario{
 	* @access public
 	* @return boolean True si se realizó sin problemas
 	*/
-	
 	public function eliminar(){
 		if ($this->getId() == '') return false;
 		

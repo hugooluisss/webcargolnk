@@ -94,42 +94,40 @@
 			<!-- sidebar menu: : style can be found in sidebar.less -->
 				<ul class="sidebar-menu">
 					{if $PAGE.usuario->getPerfil() eq 1}
-					<li class="{if in_array($PAGE.modulo, array('admonUsuarios', 'sucursales', 'referencias'))}active{/if} treeview">
+					<li class="{if in_array($PAGE.modulo, array('admonusuarios', 'secciones', 'appmovil'))}active{/if} treeview">
 						<a href="#">
 							<span>Administración</span> <i class="fa fa-angle-left pull-right"></i>
 						</a>
 						<ul class="treeview-menu">
-							<li {if $PAGE.modulo eq 'admonUsuarios'}class="active"{/if}><a href="admonUsuarios"><i class="fa fa-users"></i> Usuarios</a></li>
+							<li {if $PAGE.modulo eq 'admonusuarios'}class="active"{/if}><a href="admonusuarios"><i class="fa fa-users"></i> Usuarios</a></li>
+							<li {if $PAGE.modulo eq 'secciones'}class="active"{/if}><a href="secciones"><i class="fa fa-bookmark"></i> Secciones</a></li>
+							<li {if $PAGE.modulo eq 'appmovil'}class="active"{/if}><a href="appmovil"><i class="fa fa-mobile" aria-hidden="true"></i> Config app</a></li>
 						</ul>
 					</li>
 					{/if}
 					
 					{if $PAGE.usuario->getPerfil() eq 1}
-					<li class="{if in_array($PAGE.modulo, array('estados', 'productos', 'paqueterias', 'membresias'))}active{/if} treeview">
+					<li class="{if in_array($PAGE.modulo, array('puestos', 'unidades', 'departamentos'))}active{/if} treeview">
 						<a href="#">
 							<span>Catálogos</span> <i class="fa fa-angle-left pull-right"></i>
 						</a>
 						<ul class="treeview-menu">
-							<li {if $PAGE.modulo eq 'estados'}class="active"{/if}><a href="estados"><i class="fa fa-certificate" aria-hidden="true"></i>
- Estados</a></li>
-							<li {if $PAGE.modulo eq 'productos'}class="active"{/if}><a href="productos"><i class="fa fa-cube"></i> Productos</a></li>
-							<li {if $PAGE.modulo eq 'paqueterias'}class="active"{/if}><a href="paqueterias"><i class="fa fa-truck" aria-hidden="true"></i> Paqueteria</a></li>
-							
-							<li {if $PAGE.modulo eq 'membresias'}class="active"{/if}><a href="membresias"><i class="fa fa-star" aria-hidden="true"></i> Membresias</a></li>
+							<li {if $PAGE.modulo eq 'puestos'}class="active"{/if}><a href="puestos"><i class="fa fa-certificate" aria-hidden="true"></i> Puestos</a></li>
+							<li {if $PAGE.modulo eq 'unidades'}class="active"{/if}><a href="unidades"><i class="fa fa-certificate" aria-hidden="true"></i> Unidades</a></li>
+							<li {if $PAGE.modulo eq 'departamentos'}class="active"{/if}><a href="departamentos"><i class="fa fa-certificate" aria-hidden="true"></i> Departamentos</a></li>
 						</ul>
 					</li>
 					{/if}
-					
-					{if in_array($PAGE.usuario->getPerfil(), array(1, 3))}
-					<li class="{if in_array($PAGE.modulo, array('pedidos', 'reportes'))}active{/if} treeview">
+					{if $PAGE.usuario->getPerfil() eq 1}
+					<li class="{if in_array($PAGE.modulo, array('noticias', 'eventos', 'archivos', 'solicitudes'))}active{/if} treeview">
 						<a href="#">
-							<span>Ordenes</span> <i class="fa fa-angle-left pull-right"></i>
+							<span>App Movil</span> <i class="fa fa-angle-left pull-right"></i>
 						</a>
 						<ul class="treeview-menu">
-							<li {if $PAGE.modulo eq 'pedidos'}class="active"{/if}><a href="pedidos"><i class="fa fa-truck"></i> Pedidos</a></li>
-							{if in_array($PAGE.usuario->getPerfil(), array(1))}
-							<li {if $PAGE.modulo eq 'reportes'}class="active"{/if}><a href="reportes"><i class="fa fa-file-text-o"></i> Reportes</a></li>
-							{/if}
+							<li {if $PAGE.modulo eq 'noticias'}class="active"{/if}><a href="noticias"> Noticias</a></li>
+							<li {if $PAGE.modulo eq 'eventos'}class="active"{/if}><a href="eventos"> Eventos</a></li>
+							<li {if $PAGE.modulo eq 'archivos'}class="active"{/if}><a href="archivos"> Archivos</a></li>
+							<li {if $PAGE.modulo eq 'solicitudes'}class="active"{/if}><a href="solicitudes"> Solicitudes</a></li>
 						</ul>
 					</li>
 					{/if}
@@ -226,11 +224,13 @@
 	<script type="text/javascript" src="{$PAGE.ruta}plugins/treegrid/js/jquery.treegrid.bootstrap3.js"></script>
 	
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	
+	<script type="text/javascript" src="{$PAGE.ruta}plugins/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="{$PAGE.ruta}plugins/ckeditor/adapters/jquery.js"></script>
     
     {foreach from=$PAGE.scriptsJS item=script}
 		<script type="text/javascript" src="{$script}?m={rand()}"></script>
 	{/foreach}
-    <script type="text/javascript" src="templates/javascript/index.js?m={rand()}"></script>
     {if $PAGE.debug}
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.3.1/less.min.js" type="text/javascript"></script>
     {else}

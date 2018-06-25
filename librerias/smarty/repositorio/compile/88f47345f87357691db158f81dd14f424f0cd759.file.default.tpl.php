@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-01-30 12:17:57
+<?php /* Smarty version Smarty-3.1.11, created on 2018-06-21 13:47:57
          compiled from "templates/plantillas/layout/default.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:19204182895a58c81ad90007-10573554%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:15137690665a8709479e0628-76090547%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '88f47345f87357691db158f81dd14f424f0cd759' => 
     array (
       0 => 'templates/plantillas/layout/default.tpl',
-      1 => 1517336109,
+      1 => 1529606875,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '19204182895a58c81ad90007-10573554',
+  'nocache_hash' => '15137690665a8709479e0628-76090547',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5a58c81b0d3216_35757378',
+  'unifunc' => 'content_5a8709481c1de2_84044845',
   'variables' => 
   array (
     'PAGE' => 0,
@@ -24,7 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a58c81b0d3216_35757378')) {function content_5a58c81b0d3216_35757378($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5a8709481c1de2_84044845')) {function content_5a8709481c1de2_84044845($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 	<head>
 	<meta charset="utf-8">
@@ -144,42 +144,40 @@ img/logo.png" alt="User Image" style="background: white"/>
 			<!-- sidebar menu: : style can be found in sidebar.less -->
 				<ul class="sidebar-menu">
 					<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['usuario']->getPerfil()==1){?>
-					<li class="<?php if (in_array($_smarty_tpl->tpl_vars['PAGE']->value['modulo'],array('admonUsuarios','sucursales','referencias'))){?>active<?php }?> treeview">
+					<li class="<?php if (in_array($_smarty_tpl->tpl_vars['PAGE']->value['modulo'],array('admonusuarios','secciones','appmovil'))){?>active<?php }?> treeview">
 						<a href="#">
 							<span>Administración</span> <i class="fa fa-angle-left pull-right"></i>
 						</a>
 						<ul class="treeview-menu">
-							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='admonUsuarios'){?>class="active"<?php }?>><a href="admonUsuarios"><i class="fa fa-users"></i> Usuarios</a></li>
+							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='admonusuarios'){?>class="active"<?php }?>><a href="admonusuarios"><i class="fa fa-users"></i> Usuarios</a></li>
+							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='secciones'){?>class="active"<?php }?>><a href="secciones"><i class="fa fa-bookmark"></i> Secciones</a></li>
+							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='appmovil'){?>class="active"<?php }?>><a href="appmovil"><i class="fa fa-mobile" aria-hidden="true"></i> Config app</a></li>
 						</ul>
 					</li>
 					<?php }?>
 					
 					<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['usuario']->getPerfil()==1){?>
-					<li class="<?php if (in_array($_smarty_tpl->tpl_vars['PAGE']->value['modulo'],array('estados','productos','paqueterias','membresias'))){?>active<?php }?> treeview">
+					<li class="<?php if (in_array($_smarty_tpl->tpl_vars['PAGE']->value['modulo'],array('puestos','unidades','departamentos'))){?>active<?php }?> treeview">
 						<a href="#">
 							<span>Catálogos</span> <i class="fa fa-angle-left pull-right"></i>
 						</a>
 						<ul class="treeview-menu">
-							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='estados'){?>class="active"<?php }?>><a href="estados"><i class="fa fa-certificate" aria-hidden="true"></i>
- Estados</a></li>
-							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='productos'){?>class="active"<?php }?>><a href="productos"><i class="fa fa-cube"></i> Productos</a></li>
-							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='paqueterias'){?>class="active"<?php }?>><a href="paqueterias"><i class="fa fa-truck" aria-hidden="true"></i> Paqueteria</a></li>
-							
-							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='membresias'){?>class="active"<?php }?>><a href="membresias"><i class="fa fa-star" aria-hidden="true"></i> Membresias</a></li>
+							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='puestos'){?>class="active"<?php }?>><a href="puestos"><i class="fa fa-certificate" aria-hidden="true"></i> Puestos</a></li>
+							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='unidades'){?>class="active"<?php }?>><a href="unidades"><i class="fa fa-certificate" aria-hidden="true"></i> Unidades</a></li>
+							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='departamentos'){?>class="active"<?php }?>><a href="departamentos"><i class="fa fa-certificate" aria-hidden="true"></i> Departamentos</a></li>
 						</ul>
 					</li>
 					<?php }?>
-					
-					<?php if (in_array($_smarty_tpl->tpl_vars['PAGE']->value['usuario']->getPerfil(),array(1,3))){?>
-					<li class="<?php if (in_array($_smarty_tpl->tpl_vars['PAGE']->value['modulo'],array('pedidos','reportes'))){?>active<?php }?> treeview">
+					<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['usuario']->getPerfil()==1){?>
+					<li class="<?php if (in_array($_smarty_tpl->tpl_vars['PAGE']->value['modulo'],array('noticias','eventos','archivos','solicitudes'))){?>active<?php }?> treeview">
 						<a href="#">
-							<span>Ordenes</span> <i class="fa fa-angle-left pull-right"></i>
+							<span>App Movil</span> <i class="fa fa-angle-left pull-right"></i>
 						</a>
 						<ul class="treeview-menu">
-							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='pedidos'){?>class="active"<?php }?>><a href="pedidos"><i class="fa fa-truck"></i> Pedidos</a></li>
-							<?php if (in_array($_smarty_tpl->tpl_vars['PAGE']->value['usuario']->getPerfil(),array(1))){?>
-							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='reportes'){?>class="active"<?php }?>><a href="reportes"><i class="fa fa-file-text-o"></i> Reportes</a></li>
-							<?php }?>
+							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='noticias'){?>class="active"<?php }?>><a href="noticias"> Noticias</a></li>
+							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='eventos'){?>class="active"<?php }?>><a href="eventos"> Eventos</a></li>
+							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='archivos'){?>class="active"<?php }?>><a href="archivos"> Archivos</a></li>
+							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='solicitudes'){?>class="active"<?php }?>><a href="solicitudes"> Solicitudes</a></li>
 						</ul>
 					</li>
 					<?php }?>
@@ -321,6 +319,11 @@ plugins/treegrid/js/jquery.treegrid.js"></script>
 plugins/treegrid/js/jquery.treegrid.bootstrap3.js"></script>
 	
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	
+	<script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/ckeditor/adapters/jquery.js"></script>
     
     <?php  $_smarty_tpl->tpl_vars['script'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['script']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['PAGE']->value['scriptsJS']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -331,8 +334,6 @@ $_smarty_tpl->tpl_vars['script']->_loop = true;
 ?m=<?php echo rand();?>
 "></script>
 	<?php } ?>
-    <script type="text/javascript" src="templates/javascript/index.js?m=<?php echo rand();?>
-"></script>
     <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['debug']){?>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.3.1/less.min.js" type="text/javascript"></script>
     <?php }else{ ?>

@@ -31,9 +31,35 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="txtNombre" class="col-sm-3 control-label">Nombre completo</label>
+						<label for="selUnidad" class="col-sm-3 control-label">Unidad</label>
+						<div class="col-sm-6">
+							<select class="form-control" id="selUnidad" name="selUnidad">
+								{foreach key=key item=item from=$unidades}
+									<option value="{$key}">{$item}
+								{/foreach}
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="selPuesto" class="col-sm-3 control-label">Puestos</label>
+						<div class="col-sm-6">
+							<select class="form-control" id="selPuesto" name="selPuesto">
+								{foreach key=key item=item from=$puestos}
+									<option value="{$key}">{$item}
+								{/foreach}
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="txtNombre" class="col-sm-3 control-label">Nombre</label>
 						<div class="col-sm-8">
 							<input class="form-control" id="txtNombre" name="txtNombre" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="txtApellidos" class="col-sm-3 control-label">Apellidos</label>
+						<div class="col-sm-8">
+							<input class="form-control" id="txtApellidos" name="txtApellidos" />
 						</div>
 					</div>
 					<div class="form-group">
@@ -49,16 +75,29 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="txtTelefono" class="col-sm-3 control-label">Teléfono</label>
-						<div class="col-sm-4">
-							<input class="form-control" id="txtTelefono" name="txtTelefono" type="tel" />
-							<span class="help-block">Incluye el código del país</span>
+						<label for="txtNacimiento" class="col-sm-3 control-label">Fecha de Nacimiento</label>
+						<div class="col-sm-2">
+							<input class="form-control" id="txtNacimiento" name="txtNacimiento" type="text" readonly="true" placeholder="YYYY-mm-dd"/>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="txtDireccion" class="col-sm-3 control-label">Dirección</label>
-						<div class="col-sm-9">
-							<textarea rows="4" id="txtDireccion" name="txtDireccion" class="form-control"></textarea>
+						<label for="txtNumEmp" class="col-sm-3 control-label">Número de empleado</label>
+						<div class="col-sm-3">
+							<input class="form-control" id="txtNumEmp" name="txtNumEmp" type="text"/>
+						</div>
+						<label for="txtFechaIngreso" class="col-sm-3 control-label">Fecha de ingreso</label>
+						<div class="col-sm-3">
+							<input class="form-control" id="txtFechaIngreso" name="txtFechaIngreso" type="text"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="txtIMSS" class="col-sm-3 control-label">Número IMSS</label>
+						<div class="col-sm-3">
+							<input class="form-control" id="txtIMSS" name="txtIMSS" type="text"/>
+						</div>
+						<label for="txtRFC" class="col-sm-3 control-label">RFC</label>
+						<div class="col-sm-3">
+							<input class="form-control" id="txtRFC" name="txtRFC" type="text"/>
 						</div>
 					</div>
 				</div>
@@ -71,5 +110,3 @@
 		</form>
 	</div>
 </div>
-
-{include file=$PAGE.rutaModulos|cat:"modulos/usuarios/winSuscripciones.tpl"}
