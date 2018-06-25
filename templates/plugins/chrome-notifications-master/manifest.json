@@ -1,0 +1,11 @@
+{  
+  "name": "MBC",  
+  "short_name": "MBC",  
+  "icons": [{  
+        "src": "images/icon-192x192.png",  
+        "sizes": "192x192",
+        "type": "image/png" 
+      }],
+  "gcm_sender_id": "89928880199",  
+  "gcm_user_visible_only": true  
+}

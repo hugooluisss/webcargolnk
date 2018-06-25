@@ -1,0 +1,22 @@
+<b style="color:GREEN;">ERROR DEL SISTEMA</b><strong> Error en la linea <span style="color:BLUE">0</span> del archivo <span style="color:BLUE">MySQL - MOD: listaUsuarios,</span> el dia <span style="color:BLUE">25/01/2018 10:01,</span><br /></strong><strong><p>El mensaje Mandado es :</p></strong>Table 'getuslink.usuariomembresia' doesn't exist en 
+select b.* from usuariomembresia where idUsuario = 7 and fechalimite > '2018-01-25 10:28:24'<br /><hr>
+<b style="color:GREEN;">ERROR DEL SISTEMA</b><strong> Error en la linea <span style="color:BLUE">0</span> del archivo <span style="color:BLUE">MySQL - MOD: listaUsuarios,</span> el dia <span style="color:BLUE">25/01/2018 10:01,</span><br /></strong><strong><p>El mensaje Mandado es :</p></strong>Table 'getuslink.usuariomembresia' doesn't exist en 
+select idSuscripcion from usuariomembresia where idUsuario = 7 and fechalimite > '2018-01-25 10:29:08'<br /><hr>
+<b style="color:GREEN;">ERROR DEL SISTEMA</b><strong> Error en la linea <span style="color:BLUE">0</span> del archivo <span style="color:BLUE">MySQL - MOD: listaUsuarios,</span> el dia <span style="color:BLUE">25/01/2018 10:01,</span><br /></strong><strong><p>El mensaje Mandado es :</p></strong>Table 'getuslink.suscsripcion' doesn't exist en 
+select idSuscripcion from suscsripcion where idUsuario = 7 and fechalimite > '2018-01-25 10:29:51'<br /><hr>
+<b style="color:GREEN;">ERROR DEL SISTEMA</b><strong> Error en la linea <span style="color:BLUE">0</span> del archivo <span style="color:BLUE">MySQL - MOD: listaUsuarios,</span> el dia <span style="color:BLUE">25/01/2018 10:01,</span><br /></strong><strong><p>El mensaje Mandado es :</p></strong>Table 'getuslink.suscsripcion' doesn't exist en 
+select idSuscripcion from suscsripcion where idUsuario = 7 and fechalimite > '2018-01-25 10:29:55'<br /><hr>
+<b style="color:GREEN;">ERROR DEL SISTEMA</b><strong> Error en la linea <span style="color:BLUE">0</span> del archivo <span style="color:BLUE">MySQL - MOD: listaMembresiasUsuarios,</span> el dia <span style="color:BLUE">25/01/2018 10:01,</span><br /></strong><strong><p>El mensaje Mandado es :</p></strong>Table 'getuslink.usuariomembresia' doesn't exist en 
+select * from membresia a join usuariomembresia b using(idMembresia) where idUsuario = 3<br /><hr>
+<b style="color:GREEN;">ERROR DEL SISTEMA</b><strong> Error en la linea <span style="color:BLUE">0</span> del archivo <span style="color:BLUE">MySQL - MOD: listaMembresiasUsuarios,</span> el dia <span style="color:BLUE">25/01/2018 10:01,</span><br /></strong><strong><p>El mensaje Mandado es :</p></strong>Table 'getuslink.usuariomembresia' doesn't exist en 
+select * from membresia a join usuariomembresia b using(idMembresia) where idUsuario = 3<br /><hr>
+<b style="color:GREEN;">ERROR DEL SISTEMA</b><strong> Error en la linea <span style="color:BLUE">0</span> del archivo <span style="color:BLUE">MySQL - MOD: csuscripciones,</span> el dia <span style="color:BLUE">25/01/2018 12:01,</span><br /></strong><strong><p>El mensaje Mandado es :</p></strong>Column count doesn't match value count at row 1 en 
+INSERT INTO suscripcion(idCliente, idMembresia) VALUES(3, 1, '2018-02-25');<br /><hr>
+<b style="color:GREEN;">ERROR DEL SISTEMA</b><strong> Error en la linea <span style="color:BLUE">0</span> del archivo <span style="color:BLUE">MySQL - MOD: csuscripciones,</span> el dia <span style="color:BLUE">25/01/2018 12:01,</span><br /></strong><strong><p>El mensaje Mandado es :</p></strong>Unknown column 'idCliente' in 'field list' en 
+INSERT INTO suscripcion(idCliente, idMembresia, fechalimite) VALUES(3, 1, '2018-02-25');<br /><hr>
+<b style="color:GREEN;">ERROR DEL SISTEMA</b><strong> Error en la linea <span style="color:BLUE">0</span> del archivo <span style="color:BLUE">MySQL - MOD: csuscripciones,</span> el dia <span style="color:BLUE">25/01/2018 12:01,</span><br /></strong><strong><p>El mensaje Mandado es :</p></strong>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE idSuscripcion = 2' at line 5 en 
+UPDATE suscripcion
+			SET
+				referencia = 'asdf',
+				metodopago = 'transferencia',
+			WHERE idSuscripcion = 2<br /><hr>
