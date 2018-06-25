@@ -6,6 +6,7 @@ define('EMAIL', 'hugooluisss@gmail.com');
 define('EMAILSOPORTE', 'hugooluisss@gmail.com');
 define('STATUS', 'En desarrollo');
 
+define('LAYOUT_FRONTEND', 'layout/frontend.tpl');
 define('LAYOUT_DEFECTO', 'layout/default.tpl');
 define('LAYOUT_AJAX', 'layout/update.tpl');
 define('LAYOUT_JSON', 'layout/json.tpl');
@@ -13,6 +14,15 @@ define('LAYOUT_SIGIN', 'layout/sign-in.tpl');
 
 #Login y su controlador
 $conf['inicio'] = array(
+	'vista' => 'frontend/home.tpl',
+	'titulo' => 'Bienvenido',
+	'descripcion' => 'Bienvenido',
+	'seguridad' => false,
+	#'js' => array('usuario.class.js'),
+	#'jsTemplate' => array('login.js'),
+	'capa' => LAYOUT_FRONTEND);
+	
+$conf['login'] = array(
 	'vista' => 'login/panel.tpl',
 	'titulo' => 'Inicia sesión',
 	'descripcion' => 'Inicia sesión',
