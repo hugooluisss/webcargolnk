@@ -15,22 +15,28 @@
 		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 	</head>
 	<body layout="home">
-		<div class="navbar navbar-fixed-top">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Inicio</a></li>
-				<li><a href="#">Transportistas</a></li>
-				<li><a href="#">Necesito mover mi carga</a></li>
-				<li><a href="#">Login</a></li>
-				<li><a href="#" class="btn btn-danger">Registra tu carga</a></li>
-				<li><a href="#" class="btn btn-danger">Sigue tu carga</a></li>
-			</ul>
-		</div>
+		<nav class="navbar navbar-expand-md navbar-light justify-content-end">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuPrincipal" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="menuPrincipal">
+				<div class="navbar-nav mr-auto">
+					<a href="inicio" class="nav-item">Inicio</a>
+					<a href="#" class="nav-item">Transportistas</a>
+					<a href="#" class="nav-item">Necesito mover mi carga</a>
+					<a href="#" class="nav-item">Login</a>
+					<a href="#" class="nav-item btn btn-danger" data-toggle="modal" data-target="#winRegistraCarga">Registra tu carga</a>
+					<a href="#" class="nav-item btn btn-danger">Sigue tu carga</a>
+				</ul>
+			</div>
+		</nav>
 		<div id="modulo">
 			{if $PAGE.vista neq ''}
 				{include file=$PAGE.vista}
 			{/if}
 		</div>
 		
+		{include file="templates/plantillas/modulos/frontend/winRegistroCarga.tpl"}
 		
 		<script src="librerias/less.min.js" type="text/javascript"></script>
 		

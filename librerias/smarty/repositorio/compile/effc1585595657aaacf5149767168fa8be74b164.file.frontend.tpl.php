@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-06-25 13:36:53
+<?php /* Smarty version Smarty-3.1.11, created on 2018-06-26 13:14:13
          compiled from "templates/plantillas/layout/frontend.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1252067815b3112cbebf748-01181086%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'effc1585595657aaacf5149767168fa8be74b164' => 
     array (
       0 => 'templates/plantillas/layout/frontend.tpl',
-      1 => 1529951796,
+      1 => 1530036852,
       2 => 'file',
     ),
   ),
@@ -45,16 +45,21 @@ build/style.less" />
 		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 	</head>
 	<body layout="home">
-		<div class="navbar navbar-fixed-top">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Inicio</a></li>
-				<li><a href="#">Transportistas</a></li>
-				<li><a href="#">Necesito mover mi carga</a></li>
-				<li><a href="#">Login</a></li>
-				<li><a href="#" class="btn btn-danger">Registra tu carga</a></li>
-				<li><a href="#" class="btn btn-danger">Sigue tu carga</a></li>
-			</ul>
-		</div>
+		<nav class="navbar navbar-expand-md navbar-light justify-content-end">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuPrincipal" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="menuPrincipal">
+				<div class="navbar-nav mr-auto">
+					<a href="inicio" class="nav-item">Inicio</a>
+					<a href="#" class="nav-item">Transportistas</a>
+					<a href="#" class="nav-item">Necesito mover mi carga</a>
+					<a href="#" class="nav-item">Login</a>
+					<a href="#" class="nav-item btn btn-danger" data-toggle="modal" data-target="#winRegistraCarga">Registra tu carga</a>
+					<a href="#" class="nav-item btn btn-danger">Sigue tu carga</a>
+				</ul>
+			</div>
+		</nav>
 		<div id="modulo">
 			<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['vista']!=''){?>
 				<?php echo $_smarty_tpl->getSubTemplate ($_smarty_tpl->tpl_vars['PAGE']->value['vista'], $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
@@ -62,6 +67,8 @@ build/style.less" />
 			<?php }?>
 		</div>
 		
+		<?php echo $_smarty_tpl->getSubTemplate ("templates/plantillas/modulos/frontend/winRegistroCarga.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 		
 		<script src="librerias/less.min.js" type="text/javascript"></script>
 		
