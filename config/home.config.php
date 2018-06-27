@@ -6,6 +6,6 @@ $conf['panelprincipal'] = array(
 	'titulo' => "Panelprincipal",
 	'seguridad' => true,
 	#'js' => array('usuario.class.js'),
-	#'jsTemplate' => array('registro.js'),
+	'jsTemplate' => array('home.js'),
 	'capa' => LAYOUT_DEFECTO);
 ?>

@@ -93,7 +93,7 @@ $datosPlantilla = array(
 	"objModulo" => $objModulo,
 	"scriptsJS" => $objModulo->getScriptsJS(),
 	"usuario" => $userSesion,
-	"inisistema" => $ini['sistema'],
+	"inisistema" => $ini,
 	"url" => $ini['sistema']['url']);
 
 foreach($_GET as $indice => $valor){

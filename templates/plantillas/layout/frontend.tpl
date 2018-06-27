@@ -8,11 +8,11 @@
 		<title>{$PAGE.empresaAcronimo}</title>
 		<link rel="stylesheet" href="{$PAGE.ruta}dist/bootstrap/css/bootstrap.min.css">
 		
-		<link rel="stylesheet" href="{$PAGE.ruta}dist/css/font-awesome.min.css">
-		<link rel="stylesheet" href="{$PAGE.ruta}dist/css/ionicons.min.css">
-		
 		<link rel="stylesheet/less" type="text/css" href="{$PAGE.ruta}build/style.less" />
-		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet" />
+		<link rel="stylesheet" href="{$PAGE.ruta}plugins/fontawesome/css/all.css" />
+		
+		<script src="https://maps.googleapis.com/maps/api/js?key={$PAGE.inisistema.maps.key}"></script>
 	</head>
 	<body layout="home">
 		<nav class="navbar navbar-expand-md navbar-light justify-content-end">
@@ -27,7 +27,7 @@
 					<a href="#" class="nav-item">Login</a>
 					<a href="#" class="nav-item btn btn-danger" data-toggle="modal" data-target="#winRegistraCarga">Registra tu carga</a>
 					<a href="#" class="nav-item btn btn-danger">Sigue tu carga</a>
-				</ul>
+				</div>
 			</div>
 		</nav>
 		<div id="modulo">
@@ -35,8 +35,6 @@
 				{include file=$PAGE.vista}
 			{/if}
 		</div>
-		
-		{include file="templates/plantillas/modulos/frontend/winRegistroCarga.tpl"}
 		
 		<script src="librerias/less.min.js" type="text/javascript"></script>
 		
@@ -47,5 +45,9 @@
 	    <link rel="stylesheet" href="{$PAGE.ruta}dist/jquery/jQueryUI/jquery-ui.css">
 	    <!-- Bootstrap 3.3.5 -->
 	    <script src="{$PAGE.ruta}dist/bootstrap/js/bootstrap.min.js"></script>
+	    
+	    {foreach from=$PAGE.scriptsJS item=script}
+			<script type="text/javascript" src="{$script}?m={rand()}"></script>
+		{/foreach}
 	</body>
 </html>

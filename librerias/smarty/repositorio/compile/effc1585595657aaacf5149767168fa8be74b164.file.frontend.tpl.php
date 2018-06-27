@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-06-26 13:14:13
+<?php /* Smarty version Smarty-3.1.11, created on 2018-06-27 11:00:27
          compiled from "templates/plantillas/layout/frontend.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1252067815b3112cbebf748-01181086%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'effc1585595657aaacf5149767168fa8be74b164' => 
     array (
       0 => 'templates/plantillas/layout/frontend.tpl',
-      1 => 1530036852,
+      1 => 1530115206,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'PAGE' => 0,
+    'script' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -35,14 +36,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 dist/bootstrap/css/bootstrap.min.css">
 		
-		<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
-dist/css/font-awesome.min.css">
-		<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
-dist/css/ionicons.min.css">
-		
 		<link rel="stylesheet/less" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 build/style.less" />
-		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet" />
+		<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/fontawesome/css/all.css" />
+		
+		<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['inisistema']['maps']['key'];?>
+"></script>
 	</head>
 	<body layout="home">
 		<nav class="navbar navbar-expand-md navbar-light justify-content-end">
@@ -57,7 +58,7 @@ build/style.less" />
 					<a href="#" class="nav-item">Login</a>
 					<a href="#" class="nav-item btn btn-danger" data-toggle="modal" data-target="#winRegistraCarga">Registra tu carga</a>
 					<a href="#" class="nav-item btn btn-danger">Sigue tu carga</a>
-				</ul>
+				</div>
 			</div>
 		</nav>
 		<div id="modulo">
@@ -66,9 +67,6 @@ build/style.less" />
 
 			<?php }?>
 		</div>
-		
-		<?php echo $_smarty_tpl->getSubTemplate ("templates/plantillas/modulos/frontend/winRegistroCarga.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
-
 		
 		<script src="librerias/less.min.js" type="text/javascript"></script>
 		
@@ -83,5 +81,15 @@ dist/jquery/jQueryUI/jquery-ui.css">
 	    <!-- Bootstrap 3.3.5 -->
 	    <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 dist/bootstrap/js/bootstrap.min.js"></script>
+	    
+	    <?php  $_smarty_tpl->tpl_vars['script'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['script']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['PAGE']->value['scriptsJS']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['script']->key => $_smarty_tpl->tpl_vars['script']->value){
+$_smarty_tpl->tpl_vars['script']->_loop = true;
+?>
+			<script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['script']->value;?>
+?m=<?php echo rand();?>
+"></script>
+		<?php } ?>
 	</body>
 </html><?php }} ?>

@@ -55,3 +55,6 @@
 		</div>
 	</div>
 </div>
+
+{include file=$PAGE.rutaModulos|cat:"modulos/frontend/winRegistroCarga.tpl"}
+{include file=$PAGE.rutaModulos|cat:"modulos/frontend/winMapa.tpl"}

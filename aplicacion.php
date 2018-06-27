@@ -15,6 +15,9 @@ $ini = array(
 		"user" => "root",
 		"pass" => "k0rgk0rg",
 		"db" => "merz"
+	),
+	"maps" => array(
+		"key" => "AIzaSyA1TI3DZaaB1D7A7KLYCLF9ZgrwnCSomIc"
 	)
 );
 ?>
