@@ -9,17 +9,9 @@
 class TUsuario{
 	private $idUsuario;
 	private $idPerfil;
-	public $unidad;
-	public $puesto;
 	private $nombre;
-	private $apellidos;
 	private $email;
 	private $pass;
-	private $nacimiento;
-	private $numemp;
-	private $imss;
-	private $rfc;
-	private $fechaingreso;
 	private $visible;
 	
 	/**
@@ -30,9 +22,6 @@ class TUsuario{
 	* @param int $id identificador del objeto
 	*/
 	public function TUsuario($id = ''){
-		$this->unidad = new TUnidad;
-		$this->puesto = new TPuesto;
-		
 		$this->setId($id);		
 		return true;
 	}
@@ -50,21 +39,13 @@ class TUsuario{
 		if ($id == '') return false;
 		
 		$db = TBase::conectaDB();
-		$rs = $db->query("select * from usuario where idUsuario = ".$id);
+		$sql = "select * from usuario where idUsuario = ".$id;
+		$rs = $db->query($sql) or errorMySQL($db, $sql);
 		
 		foreach($rs->fetch_assoc() as $field => $val){
-			switch($field){
-				case 'idPuesto':
-					$this->puesto = new TPuesto($val);
-				break;
-				case 'idUnidad':
-					$this->unidad = new TUnidad($val);
-				break;
-				default:
-					$this->$field = $val;
-			}
+			$this->$field = $val;
 		}
-				
+		
 		return true;
 	}
 	
@@ -81,7 +62,7 @@ class TUsuario{
 	}
 	
 	/**
-	* Establece el valor de tipo de usuario
+	* Establece el valor del perfil
 	*
 	* @autor Hugo
 	* @access public
@@ -102,7 +83,7 @@ class TUsuario{
 	* @return string Texto
 	*/
 	
-	public function getidPerfil(){
+	public function getPerfil(){
 		return $this->idPerfil;
 	}
 	
@@ -114,27 +95,16 @@ class TUsuario{
 	* @return string Texto
 	*/
 	
-	public function getTipo(){
-		if ($this->getidPerfil() == '') return false;
+	public function getNombrePerfil(){
+		if ($this->getPerfil() == '') return false;
 		
 		$db = TBase::conectaDB();
-		$rs = $db->query("select nombre from perfil where idPerfil = ".$this->getidPerfil());
+		$sql = "select nombre from perfil where idPerfil = ".$this->getPerfil();
+		$rs = $db->query($sql) or errorMySQL($db, $sql);
 		$row = $rs->fetch_assoc();
 		return $row['nombre'];
 	}
-	
-	/**
-	* Retorna el tipo como si fuera un perfil
-	*
-	* @autor Hugo
-	* @access public
-	* @return string Texto
-	*/
-	
-	public function getPerfil(){
-		return $this->getidPerfil();
-	}
-	
+		
 	/**
 	* Establece el nombre
 	*
@@ -159,32 +129,6 @@ class TUsuario{
 	
 	public function getNombre(){
 		return $this->nombre;
-	}
-	
-	/**
-	* Establece los apellidos
-	*
-	* @autor Hugo
-	* @access public
-	* @param string $val Valor a asignar
-	* @return boolean True si se realizó sin problemas
-	*/
-	
-	public function setApellidos($val = ''){
-		$this->apellidos = $val;
-		return true;
-	}
-	
-	/**
-	* Retorna los apellidos
-	*
-	* @autor Hugo
-	* @access public
-	* @return string Texto
-	*/
-	
-	public function getApellidos(){
-		return $this->apellidos;
 	}
 	
 	/**
@@ -240,136 +184,6 @@ class TUsuario{
 	}
 	
 	/**
-	* Establece la fecha de nacimiento
-	*
-	* @autor Hugo
-	* @access public
-	* @param string $val Valor a asignar
-	* @return boolean True si se realizó sin problemas
-	*/
-	
-	public function setNacimiento($val = ''){
-		$this->nacimiento = $val == ''?date("Y-m-d"):$val;
-		return true;
-	}
-	
-	/**
-	* Retorna la fecha de nacimiento
-	*
-	* @autor Hugo
-	* @access public
-	* @return string Texto
-	*/
-	
-	public function getNacimiento(){
-		return $this->nacimiento == ''?date("Y-m-d"):$this->nacimiento;
-	}
-	
-	/**
-	* Establece Número de empleado
-	*
-	* @autor Hugo
-	* @access public
-	* @param string $val Valor a asignar
-	* @return boolean True si se realizó sin problemas
-	*/
-	
-	public function setNumEmp($val = ''){
-		$this->numemp = $val;
-		return true;
-	}
-	
-	/**
-	* Retorna el número de empleado
-	*
-	* @autor Hugo
-	* @access public
-	* @return string Texto
-	*/
-	
-	public function getNumEmp(){
-		return $this->numemp;
-	}
-	
-	/**
-	* Establece Número de IMSS
-	*
-	* @autor Hugo
-	* @access public
-	* @param string $val Valor a asignar
-	* @return boolean True si se realizó sin problemas
-	*/
-	
-	public function setIMSS($val = ''){
-		$this->imss = $val;
-		return true;
-	}
-	
-	/**
-	* Retorna el número de IMSS
-	*
-	* @autor Hugo
-	* @access public
-	* @return string Texto
-	*/
-	
-	public function getIMSS(){
-		return $this->imss;
-	}
-	
-	/**
-	* Establece RFC
-	*
-	* @autor Hugo
-	* @access public
-	* @param string $val Valor a asignar
-	* @return boolean True si se realizó sin problemas
-	*/
-	
-	public function setRFC($val = ''){
-		$this->rfc = $val;
-		return true;
-	}
-	
-	/**
-	* Retorna el RFC
-	*
-	* @autor Hugo
-	* @access public
-	* @return string Texto
-	*/
-	
-	public function getRFC(){
-		return $this->rfc;
-	}
-	
-	/**
-	* Establece la fecha de ingreso
-	*
-	* @autor Hugo
-	* @access public
-	* @param string $val Valor a asignar
-	* @return boolean True si se realizó sin problemas
-	*/
-	
-	public function setFechaIngreso($val = ''){
-		$this->fechaingreso = $val;
-		return true;
-	}
-	
-	/**
-	* Retorna la fecha de ingreso
-	*
-	* @autor Hugo
-	* @access public
-	* @return string Texto
-	*/
-	
-	public function getFechaIngreso(){
-		return $this->fechaingreso;
-	}
-		
-	/**
 	* Guarda los datos en la base de datos, si no existe un identificador entonces crea el objeto
 	*
 	* @autor Hugo
@@ -378,13 +192,14 @@ class TUsuario{
 	*/
 	
 	public function guardar(){
-		if ($this->unidad->getId() == '') return false;
-		if ($this->puesto->getId() == '') return false;
+		if ($this->getPerfil() == '') return false;
 		
 		$db = TBase::conectaDB();
 		
 		if ($this->getId() == ''){
-			$rs = $db->query("INSERT INTO usuario(idPerfil, idUnidad, idPuesto, visible) VALUES(".$this->getIdPerfil().", ".$this->unidad->getId().", ".$this->puesto->getId().", true);");
+			$sql = "INSERT INTO usuario(idPerfil, visible) VALUES(".$this->getPerfil().", true);";
+			
+			$rs = $db->query($sql) or errorMySQL($db, $sql);
 			if (!$rs) return false;
 				
 			$this->idUsuario = $db->insert_id;
@@ -395,18 +210,10 @@ class TUsuario{
 		
 		$sql = "UPDATE usuario
 			SET
-				idPerfil = ".$this->getIdPerfil().",
-				idUnidad = ".$this->unidad->getId().",
-				idPuesto = ".$this->puesto->getId().",
+				idPerfil = ".$this->getPerfil().",
 				nombre = '".$this->getNombre()."',
-				apellidos = '".$this->getApellidos()."',
 				email = '".$this->getEmail()."',
-				pass = '".$this->getPass()."',
-				nacimiento = '".$this->getNacimiento()."',
-				numemp = '".$this->getNumEmp()."',
-				imss = '".$this->getIMSS()."',
-				rfc = '".$this->getRFC()."',
-				fechaingreso = '".$this->getFechaIngreso()."'
+				pass = '".$this->getPass()."'
 			WHERE idUsuario = ".$this->getId();
 		$rs = $db->query($sql) or errorMySQL($db, $sql);
 			
@@ -420,11 +227,13 @@ class TUsuario{
 	* @access public
 	* @return boolean True si se realizó sin problemas
 	*/
+	
 	public function eliminar(){
 		if ($this->getId() == '') return false;
 		
 		$db = TBase::conectaDB();
-		$rs = $db->query("update usuario set visible = false where idUsuario = ".$this->getId());
+		$sql = "update usuario set visible = false where idUsuario = ".$this->getId();
+		$rs = $db->query($sql) or errorMySQL($db, $sql);
 		
 		return $rs?true:false;
 	}

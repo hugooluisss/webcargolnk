@@ -14,29 +14,17 @@
 		
 		<script src="https://maps.googleapis.com/maps/api/js?key={$PAGE.inisistema.maps.key}"></script>
 	</head>
-	<body layout="home">
+	<body layout="backend">
 		<nav class="navbar navbar-expand-md navbar-light justify-content-end">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuPrincipal" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="menuPrincipal">
-				<div class="navbar-nav mr-auto">
-					<a href="inicio" class="nav-item">Inicio</a>
-					<a href="#" class="nav-item">Transportistas</a>
-					<a href="#" class="nav-item">Necesito mover mi carga</a>
-					<a href="#" class="nav-item" data-toggle="modal" data-target="#winLogin">Login</a>
-					<a href="#" class="nav-item btn btn-danger" data-toggle="modal" data-target="#winRegistraCarga">Registra tu carga</a>
-					<a href="#" class="nav-item btn btn-danger" data-toggle="modal" data-target="#winSigueTuCarga">Sigue tu carga</a>
-				</div>
-			</div>
+			<a class="navbar-brand" href="#">
+				<img src="{$PAGE.iconos}logo.png" class="img-fluid" />
+			</a>
 		</nav>
 		<div id="modulo">
 			{if $PAGE.vista neq ''}
 				{include file=$PAGE.vista}
 			{/if}
 		</div>
-		
-		{include file=$PAGE.rutaModulos|cat:"modulos/frontend/login.tpl"}
 		
 		<script src="librerias/less.min.js" type="text/javascript"></script>
 		

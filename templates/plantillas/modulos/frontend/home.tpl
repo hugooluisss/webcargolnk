@@ -58,3 +58,5 @@
 
 {include file=$PAGE.rutaModulos|cat:"modulos/frontend/winRegistroCarga.tpl"}
 {include file=$PAGE.rutaModulos|cat:"modulos/frontend/winMapa.tpl"}
+
+{include file=$PAGE.rutaModulos|cat:"modulos/frontend/winSigueTuCarga.tpl"}

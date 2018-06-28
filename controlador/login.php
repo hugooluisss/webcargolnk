@@ -1,14 +1,6 @@
 <?php
 global $objModulo;
 switch($objModulo->getId()){
-	case 'route':
-		global $userSesion;
-		switch($userSesion->getIdPerfil()){
-			case '1': #extranjero
-				header ("Location: panelprincipal");
-			break;
-		}
-	break;
 	case 'logout':
 		$_SESSION[SISTEMA] = array();
 		session_destroy();
@@ -39,7 +31,6 @@ switch($objModulo->getId()){
 				if($result['band']){
 					$obj = new TUsuario($row['idUsuario']);
 					$sesion['usuario'] = $obj->getId();
-					$sesion['perfil'] = $obj->getIdPerfil();
 					
 					$_SESSION[SISTEMA] = $sesion;
 				}

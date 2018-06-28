@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-06-27 10:40:00
+<?php /* Smarty version Smarty-3.1.11, created on 2018-06-28 12:23:40
          compiled from "templates/plantillas/modulos/frontend/home.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:16539928555b31359450c5b3-95776298%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0a8bcc2c726d91d6dc6ac1ec509d92f26bffac7e' => 
     array (
       0 => 'templates/plantillas/modulos/frontend/home.tpl',
-      1 => 1530113679,
+      1 => 1530206503,
       2 => 'file',
     ),
   ),
@@ -84,4 +84,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['PAGE']->value['rutaModulos']).("modulos/frontend/winRegistroCarga.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 <?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['PAGE']->value['rutaModulos']).("modulos/frontend/winMapa.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
+
+<?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['PAGE']->value['rutaModulos']).("modulos/frontend/winSigueTuCarga.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 <?php }} ?>
