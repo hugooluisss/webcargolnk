@@ -1,45 +1,13 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-07-05 14:04:07
-         compiled from "templates/plantillas/modulos/usuarios/panel.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:14663439385a870948253c56-23603944%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
-$_valid = $_smarty_tpl->decodeProperties(array (
-  'file_dependency' => 
-  array (
-    '75fca16c9665563fbe115b9d9483a90d1409c54e' => 
-    array (
-      0 => 'templates/plantillas/modulos/usuarios/panel.tpl',
-      1 => 1530817446,
-      2 => 'file',
-    ),
-  ),
-  'nocache_hash' => '14663439385a870948253c56-23603944',
-  'function' => 
-  array (
-  ),
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5a8709482b36c6_72071313',
-  'variables' => 
-  array (
-    'PAGE' => 0,
-    'empresa' => 0,
-    'transportista' => 0,
-    'perfiles' => 0,
-    'key' => 0,
-    'item' => 0,
-  ),
-  'has_nocache_code' => false,
-),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a8709482b36c6_72071313')) {function content_5a8709482b36c6_72071313($_smarty_tpl) {?><div class="row">
+<div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">
 			Usuarios
-			<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='usuariosempresa'){?>
-				de "<?php echo $_smarty_tpl->tpl_vars['empresa']->value->getRazonSocial();?>
-"
-			<?php }?>
-			<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='usuariostransportista'){?>
-				de "<?php echo $_smarty_tpl->tpl_vars['transportista']->value->getNombre();?>
-"
-			<?php }?>
+			{if $PAGE.modulo eq 'usuariosempresa'}
+				de "{$empresa->getRazonSocial()}"
+			{/if}
+			{if $PAGE.modulo eq 'usuariostransportista'}
+				de "{$transportista->getNombre()}"
+			{/if}
 		</h1>
 	</div>
 </div>
@@ -64,17 +32,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<label for="selTipo" class="col-lg-2">Perfil</label>
 						<div class="col-lg-4">
 							<select class="form-control" id="selPerfil" name="selPerfil">
-								<?php  $_smarty_tpl->tpl_vars['item'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['item']->_loop = false;
- $_smarty_tpl->tpl_vars['key'] = new Smarty_Variable;
- $_from = $_smarty_tpl->tpl_vars['perfiles']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['item']->key => $_smarty_tpl->tpl_vars['item']->value){
-$_smarty_tpl->tpl_vars['item']->_loop = true;
- $_smarty_tpl->tpl_vars['key']->value = $_smarty_tpl->tpl_vars['item']->key;
-?>
-									<option value="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
-"><?php echo $_smarty_tpl->tpl_vars['item']->value;?>
-
-								<?php } ?>
+								{foreach key=key item=item from=$perfiles}
+									<option value="{$key}">{$item}
+								{/foreach}
 							</select>
 						</div>
 					</div>
@@ -96,7 +56,7 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 							<input class="form-control" id="txtPass" name="txtPass" type="password">
 						</div>
 					</div>
-					<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='usuariostransportista'){?>
+					{if $PAGE.modulo eq 'usuariostransportista'}
 						<div class="form-group">
 							<label for="txtPass" class="col-lg-2">NIT</label>
 							<div class="col-lg-6">
@@ -121,22 +81,20 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 								<input class="form-control" id="txtPatenteRampla" name="txtPatenteRampla" type="text">
 							</div>
 						</div>
-					<?php }?>
+					{/if}
 				</div>
 				<div class="box-footer">
 					<button type="reset" id="btnReset" class="btn btn-default">Cancelar</button>
 					<button type="submit" class="btn btn-info pull-right">Guardar</button>
 					<input type="hidden" id="id"/>
-					<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='usuariosempresa'){?>
-						<input type="hidden" id="empresa" value="<?php echo $_smarty_tpl->tpl_vars['empresa']->value->getId();?>
-"/>
-					<?php }?>
-					<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='usuariostransportista'){?>
-						<input type="hidden" id="transportista" value="<?php echo $_smarty_tpl->tpl_vars['transportista']->value->getId();?>
-"/>
-					<?php }?>
+					{if $PAGE.modulo eq 'usuariosempresa'}
+						<input type="hidden" id="empresa" value="{$empresa->getId()}"/>
+					{/if}
+					{if $PAGE.modulo eq 'usuariostransportista'}
+						<input type="hidden" id="transportista" value="{$transportista->getId()}"/>
+					{/if}
 				</div>
 			</div>
 		</form>
 	</div>
-</div><?php }} ?>
+</div>

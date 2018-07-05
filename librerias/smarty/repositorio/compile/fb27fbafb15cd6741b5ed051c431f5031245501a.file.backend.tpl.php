@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-06-28 14:01:44
+<?php /* Smarty version Smarty-3.1.11, created on 2018-07-05 13:57:25
          compiled from "templates/plantillas/layout/backend.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:12753549775b352ed6494ed3-83892420%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fb27fbafb15cd6741b5ed051c431f5031245501a' => 
     array (
       0 => 'templates/plantillas/layout/backend.tpl',
-      1 => 1530212502,
+      1 => 1530817044,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5b352ed651a8c9_79364114')) {function content_5b352ed651a8c9_79364114($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5b352ed651a8c9_79364114')) {function content_5b352ed651a8c9_79364114($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/Library/WebServer/Documents/web-cargolink/librerias/smarty/plugins/modifier.date_format.php';
+?><!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -46,13 +47,40 @@ plugins/fontawesome/css/all.css" />
 "></script>
 	</head>
 	<body layout="backend">
-		<nav class="navbar navbar-expand-md navbar-light justify-content-end">
+		<nav class="navbar navbar-expand-md justify-content-between fixed-top">
+			<button class="navbar-toggler left" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon">
+					<i class="fas fa-bars"></i>
+				</span>
+			</button>
 			<a class="navbar-brand" href="#">
-				<img src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['iconos'];?>
-logo.png" class="img-fluid" />
+				Menú principal
 			</a>
+			<div class="menuLateral navbar-collapse collapse" id="navbarTogglerDemo01">
+				<ul class="sidebar-menu">
+					<li class="header">MENÚ PRINCIPAL</li>
+					<li><a href="usuarios" class="<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='usuarios'){?>activo<?php }?>"><i class="fas fa-3x fa-user"></i> Usuarios</a></li>
+					<li><a href="#"><i class="fas fa-3x fa-truck-moving"></i> Cargas registradas</a></li>
+					<li><a href="#"><i class="fas fa-3x fa-users"></i> Catálogo transportistas</a></li>
+					<li><a href="#"><i class="fas fa-3x fa-file-signature"></i> Reportes</a></li>
+				</ul>
+			</div>
+			<ul class="navbar-nav">
+				<li class="navbar-right"><a href="#"><i class="fas fa-user"></i> <span><?php echo $_smarty_tpl->tpl_vars['PAGE']->value['usuario']->getNombre();?>
+</span></a></li>
+			</ul>
 		</nav>
-		<div id="modulo">
+		<div id="modulo" class="container">
+			<div class="row logotipo">
+				<div class="col-xs-6 offset-6 text-right col-sm-4 offset-sm-8">
+					<img src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['iconos'];?>
+logo.png" class="img-fluid" /><br />
+					<span><?php echo smarty_modifier_date_format(time(),"%d");?>
+ de <?php echo smarty_modifier_date_format(time(),"%B");?>
+ del <?php echo smarty_modifier_date_format(time(),"%Y");?>
+</span>
+				</div>
+			</div>
 			<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['vista']!=''){?>
 				<?php echo $_smarty_tpl->getSubTemplate ($_smarty_tpl->tpl_vars['PAGE']->value['vista'], $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 

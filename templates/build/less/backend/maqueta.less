@@ -1,0 +1,68 @@
+body[layout=backend]{
+	@rojo: #ed1c24;
+	@grisClaro: #f2f2f2;
+	@grisOscuro: #414141;
+	@grisSeleccion: #353535;
+	@anchoNav: 50px;
+	@tamMenuLateral: 30%;
+	overflow: hidden;
+	
+	background: @grisClaro;
+	
+	.navbar{
+		background: @rojo;
+		color: white;
+		height: @anchoNav;
+		
+		a{
+			color: white;
+		}
+		
+		ul.navbar-nav{
+			li{
+				margin-left: 20px;
+				a{
+					span{
+						@media (max-width: @mq-xs-max){
+							display: none;
+						}
+					}
+					&:hover{
+						text-decoration: none;
+					}
+				}
+			}
+		}
+		
+	}
+	
+	@import "menuLateral.less";
+	
+	#modulo{
+		padding-top: 20px;
+		margin-top: (@anchoNav);
+		width: 100%;
+		overflow: auto;
+		padding-left: 20px;
+		padding-right: 20px;
+		
+		@media (min-width: @mq-md-min){
+			@tam: @tamMenuLateral;
+			width: (100%-@tam);
+			margin-left: @tam;
+		}
+		
+		@media (min-width: @mq-lg-min){
+			width: 80%;
+			margin-left: 20%;
+		}
+		
+		.logotipo{
+			font-size: 10px;
+			img{
+				width: 100%;
+				max-width: 150px;
+			}
+		}
+	}
+}

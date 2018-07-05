@@ -1,0 +1,78 @@
+.navbar-toggler{
+	&.left{
+		float: left;
+	}
+	.navbar-toggler-icon{
+		padding-top: 3px;
+		color: white;
+	}
+}
+	
+.menuLateral{
+	background: @grisOscuro;
+	width: 100%;
+	position: fixed;
+	top: @anchoNav;
+	left: 0px;
+	height: 100%;
+	vertical-align: text-top;
+	
+	.sidebar-menu{
+		white-space: nowrap;
+		overflow: hidden;
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+		position: absolute;
+		top: 0px;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		margin-top: 20px;
+		width: 100%;
+		
+		li{
+			&.header{
+				padding: 10px 25px 10px 15px;
+				font-size: 12px;
+				margin-bottom: 20px;
+			}
+			position: relative;
+			margin: 0;
+			padding: 0;
+			
+			a{
+				i{
+					width: 70px;
+				}
+				padding: 12px 5px 12px 15px;
+				display: block;
+				font-size: 14px;
+				display: block;
+				line-height: 1.4;
+				
+				&:focus, &:hover{
+					background: @grisSeleccion;
+					text-decoration: underline;
+					text-decoration: none;
+				}
+			}
+			
+			.active{
+				background: @grisSeleccion;
+			}
+		}
+	}
+	
+	@media (min-width: @mq-sm-min){
+		@tam: (@tamMenuLateral+10%);
+		width: @tam;
+	}
+	
+	@media (min-width: @mq-md-min){
+		@tam: @tamMenuLateral;
+		width: @tam;
+	}
+	
+	@media (min-width: @mq-lg-min){
+		width: 20%;
+	}
+}
