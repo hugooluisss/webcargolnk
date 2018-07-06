@@ -8,7 +8,7 @@ $ini = array(
 		"slogan" => "",
 		"template" => "default",
 		"ssl" => "no",
-		"url" => "http://localhost/cargolink/"
+		"url" => "http://localhost/web-cargolink/"
 	),
 	"conexion_" => array(
 		"server" => "localhost",

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-07-05 13:57:25
+<?php /* Smarty version Smarty-3.1.11, created on 2018-07-06 13:53:36
          compiled from "templates/plantillas/layout/backend.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:12753549775b352ed6494ed3-83892420%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fb27fbafb15cd6741b5ed051c431f5031245501a' => 
     array (
       0 => 'templates/plantillas/layout/backend.tpl',
-      1 => 1530817044,
+      1 => 1530902838,
       2 => 'file',
     ),
   ),
@@ -32,11 +32,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<!-- Tell the browser to be responsive to screen width -->
 	    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	    <base href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['url'];?>
+index.php" target="_top">
 		<title><?php echo $_smarty_tpl->tpl_vars['PAGE']->value['empresaAcronimo'];?>
 </title>
 		<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 dist/bootstrap/css/bootstrap.min.css">
-		
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+
 		<link rel="stylesheet/less" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 build/style.less" />
 		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet" />
@@ -60,8 +64,9 @@ plugins/fontawesome/css/all.css" />
 				<ul class="sidebar-menu">
 					<li class="header">MENÚ PRINCIPAL</li>
 					<li><a href="usuarios" class="<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='usuarios'){?>activo<?php }?>"><i class="fas fa-3x fa-user"></i> Usuarios</a></li>
-					<li><a href="#"><i class="fas fa-3x fa-truck-moving"></i> Cargas registradas</a></li>
-					<li><a href="#"><i class="fas fa-3x fa-users"></i> Catálogo transportistas</a></li>
+					<li><a href="tipocamion" class="<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='tipocamion'){?>activo<?php }?>"><i class="fas fa-3x fa-truck-loading"></i> Tipo camión</a></li>
+					<li><a href="cargas" class="<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='cargas'){?>activo<?php }?>"><i class="fas fa-3x fa-truck-moving"></i> Cargas registradas</a></li>
+					<li><a href="transportistas" class="<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='transportistas'){?>activo<?php }?>"><i class="fas fa-3x fa-users"></i> Catálogo transportistas</a></li>
 					<li><a href="#"><i class="fas fa-3x fa-file-signature"></i> Reportes</a></li>
 				</ul>
 			</div>
@@ -107,6 +112,14 @@ plugins/validate/validate.es.js"></script>
 	    <script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 plugins/validate/validate.js"></script>
 	    
+	    <!-- Datatables -->
+	    <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/DataTables/lenguaje/ES-mx.js"></script>
+		<link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/DataTables/datatables.min.css"/>
+		<script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/DataTables/datatables.min.js"></script>
+
 	    <?php  $_smarty_tpl->tpl_vars['script'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['script']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['PAGE']->value['scriptsJS']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['script']->key => $_smarty_tpl->tpl_vars['script']->value){

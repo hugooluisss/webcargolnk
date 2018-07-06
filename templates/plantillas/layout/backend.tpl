@@ -5,9 +5,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<!-- Tell the browser to be responsive to screen width -->
 	    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	    <base href="{$PAGE.url}index.php" target="_top">
 		<title>{$PAGE.empresaAcronimo}</title>
 		<link rel="stylesheet" href="{$PAGE.ruta}dist/bootstrap/css/bootstrap.min.css">
-		
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+
 		<link rel="stylesheet/less" type="text/css" href="{$PAGE.ruta}build/style.less" />
 		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet" />
 		<link rel="stylesheet" href="{$PAGE.ruta}plugins/fontawesome/css/all.css" />
@@ -28,8 +31,9 @@
 				<ul class="sidebar-menu">
 					<li class="header">MENÚ PRINCIPAL</li>
 					<li><a href="usuarios" class="{if $PAGE.modulo eq 'usuarios'}activo{/if}"><i class="fas fa-3x fa-user"></i> Usuarios</a></li>
-					<li><a href="#"><i class="fas fa-3x fa-truck-moving"></i> Cargas registradas</a></li>
-					<li><a href="#"><i class="fas fa-3x fa-users"></i> Catálogo transportistas</a></li>
+					<li><a href="tipocamion" class="{if $PAGE.modulo eq 'tipocamion'}activo{/if}"><i class="fas fa-3x fa-truck-loading"></i> Tipo camión</a></li>
+					<li><a href="cargas" class="{if $PAGE.modulo eq 'cargas'}activo{/if}"><i class="fas fa-3x fa-truck-moving"></i> Cargas registradas</a></li>
+					<li><a href="transportistas" class="{if $PAGE.modulo eq 'transportistas'}activo{/if}"><i class="fas fa-3x fa-users"></i> Catálogo transportistas</a></li>
 					<li><a href="#"><i class="fas fa-3x fa-file-signature"></i> Reportes</a></li>
 				</ul>
 			</div>
@@ -63,6 +67,11 @@
 	    <script type="text/javascript" src="{$PAGE.ruta}plugins/validate/validate.es.js"></script>
 	    <script type="text/javascript" src="{$PAGE.ruta}plugins/validate/validate.js"></script>
 	    
+	    <!-- Datatables -->
+	    <script src="{$PAGE.ruta}plugins/DataTables/lenguaje/ES-mx.js"></script>
+		<link rel="stylesheet" type="text/css" href="{$PAGE.ruta}plugins/DataTables/datatables.min.css"/>
+		<script type="text/javascript" src="{$PAGE.ruta}plugins/DataTables/datatables.min.js"></script>
+
 	    {foreach from=$PAGE.scriptsJS item=script}
 			<script type="text/javascript" src="{$script}?m={rand()}"></script>
 		{/foreach}

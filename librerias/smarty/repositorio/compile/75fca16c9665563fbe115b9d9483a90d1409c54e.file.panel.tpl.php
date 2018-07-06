@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-07-05 14:04:07
+<?php /* Smarty version Smarty-3.1.11, created on 2018-07-06 12:19:41
          compiled from "templates/plantillas/modulos/usuarios/panel.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14663439385a870948253c56-23603944%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '75fca16c9665563fbe115b9d9483a90d1409c54e' => 
     array (
       0 => 'templates/plantillas/modulos/usuarios/panel.tpl',
-      1 => 1530817446,
+      1 => 1530897579,
       2 => 'file',
     ),
   ),
@@ -19,9 +19,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_5a8709482b36c6_72071313',
   'variables' => 
   array (
-    'PAGE' => 0,
-    'empresa' => 0,
-    'transportista' => 0,
     'perfiles' => 0,
     'key' => 0,
     'item' => 0,
@@ -29,40 +26,33 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5a8709482b36c6_72071313')) {function content_5a8709482b36c6_72071313($_smarty_tpl) {?><div class="row">
-	<div class="col-lg-12">
+	<div class="col-md-12">
 		<h1 class="page-header">
 			Usuarios
-			<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='usuariosempresa'){?>
-				de "<?php echo $_smarty_tpl->tpl_vars['empresa']->value->getRazonSocial();?>
-"
-			<?php }?>
-			<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='usuariostransportista'){?>
-				de "<?php echo $_smarty_tpl->tpl_vars['transportista']->value->getNombre();?>
-"
-			<?php }?>
 		</h1>
 	</div>
 </div>
 
-<ul id="panelTabs" class="nav nav-tabs" role="tablist">
-  <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#listas">Lista</a></li>
-  <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#add">Agregar o Modificar</a></li>
+<ul id="panelTabs" class="nav nav-pills">
+  <li class="nav-item">
+  	<a class="nav-link active" role="tab" data-toggle="pill" href="#listas">Lista</a>
+  </li>
+  <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#add">Agregar o Modificar</a></li>
 </ul>
 
 <div class="tab-content">
-	<div role="tabpanel" id="listas" class="tab-pane fade in active">
+	<div id="listas" class="tab-pane container active">
 		<div id="dvLista">
-			asdf
 		</div>
 	</div>
 	
-	<div role="tabpanel" id="add" class="tab-pane fade">
+	<div id="add" class="tab-pane container">
 		<form role="form" id="frmAdd" class="form-horizontal" onsubmit="javascript: return false;">
-			<div class="box">
-				<div class="box-body">
-					<div class="form-group">
-						<label for="selTipo" class="col-lg-2">Perfil</label>
-						<div class="col-lg-4">
+			<div class="card">
+				<div class="card-body">
+					<div class="form-group row">
+						<label for="selTipo" class="col-md-2">Perfil</label>
+						<div class="col-md-4">
 							<select class="form-control" id="selPerfil" name="selPerfil">
 								<?php  $_smarty_tpl->tpl_vars['item'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['item']->_loop = false;
  $_smarty_tpl->tpl_vars['key'] = new Smarty_Variable;
@@ -73,68 +63,34 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 ?>
 									<option value="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['item']->value;?>
-
+</option>
 								<?php } ?>
 							</select>
 						</div>
 					</div>
-					<div class="form-group">
-						<label for="txtNombre" class="col-lg-2">Nombre</label>
-						<div class="col-lg-6">
+					<div class="form-group row">
+						<label for="txtNombre" class="col-md-2">Nombre</label>
+						<div class="col-md-6">
 							<input class="form-control" id="txtNombre" name="txtNombre">
 						</div>
 					</div>
-					<div class="form-group">
-						<label for="txtEmail" class="col-lg-2">Correo electrónico</label>
-						<div class="col-lg-3">
+					<div class="form-group row">
+						<label for="txtEmail" class="col-md-2">Correo electrónico</label>
+						<div class="col-md-3">
 							<input class="form-control" id="txtEmail" name="txtEmail" type="email">
 						</div>
 					</div>
-					<div class="form-group">
-						<label for="txtPass" class="col-lg-2">Contraseña</label>
-						<div class="col-lg-3">
+					<div class="form-group row">
+						<label for="txtPass" class="col-md-2">Contraseña</label>
+						<div class="col-md-3">
 							<input class="form-control" id="txtPass" name="txtPass" type="password">
 						</div>
 					</div>
-					<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='usuariostransportista'){?>
-						<div class="form-group">
-							<label for="txtPass" class="col-lg-2">NIT</label>
-							<div class="col-lg-6">
-								<input class="form-control" id="txtNit" name="txtNit" type="text">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="txtCelular" class="col-lg-2">Celular</label>
-							<div class="col-lg-3">
-								<input class="form-control" id="txtCelular" name="txtCelular" type="text">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="txtPatenteCamion" class="col-lg-2">Patente camión</label>
-							<div class="col-lg-6">
-								<input class="form-control" id="txtPatenteCamion" name="txtPatenteCamion" type="text">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="txtPatenteRampla" class="col-lg-2">Patente rampla</label>
-							<div class="col-lg-6">
-								<input class="form-control" id="txtPatenteRampla" name="txtPatenteRampla" type="text">
-							</div>
-						</div>
-					<?php }?>
 				</div>
-				<div class="box-footer">
+				<div class="card-footer">
+					<button type="submit" class="btn btn-primary">Guardar</button>
 					<button type="reset" id="btnReset" class="btn btn-default">Cancelar</button>
-					<button type="submit" class="btn btn-info pull-right">Guardar</button>
 					<input type="hidden" id="id"/>
-					<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='usuariosempresa'){?>
-						<input type="hidden" id="empresa" value="<?php echo $_smarty_tpl->tpl_vars['empresa']->value->getId();?>
-"/>
-					<?php }?>
-					<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='usuariostransportista'){?>
-						<input type="hidden" id="transportista" value="<?php echo $_smarty_tpl->tpl_vars['transportista']->value->getId();?>
-"/>
-					<?php }?>
 				</div>
 			</div>
 		</form>

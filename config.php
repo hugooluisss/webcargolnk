@@ -18,7 +18,7 @@ $conf['inicio'] = array(
 	'descripcion' => 'Bienvenido',
 	'seguridad' => false,
 	'js' => array('usuario.class.js'),
-	'jsTemplate' => array('home.js', 'usuario.js'),
+	'jsTemplate' => array('home.js', 'login.js'),
 	'capa' => LAYOUT_FRONTEND);
 
 $conf['logout'] = array(
