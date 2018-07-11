@@ -71,6 +71,10 @@
 	    <script src="{$PAGE.ruta}plugins/DataTables/lenguaje/ES-mx.js"></script>
 		<link rel="stylesheet" type="text/css" href="{$PAGE.ruta}plugins/DataTables/datatables.min.css"/>
 		<script type="text/javascript" src="{$PAGE.ruta}plugins/DataTables/datatables.min.js"></script>
+		
+		<!-- Date time picker-->
+		<link rel="stylesheet" type="text/css" href="{$PAGE.ruta}plugins/datetimepicker/jquery.datetimepicker.min.css"/>
+		<script type="text/javascript" src="{$PAGE.ruta}plugins/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 
 	    {foreach from=$PAGE.scriptsJS item=script}
 			<script type="text/javascript" src="{$script}?m={rand()}"></script>

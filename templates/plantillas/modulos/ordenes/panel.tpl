@@ -26,13 +26,13 @@
 					<div class="form-group row">
 						<label for="txtFolio" class="col-lg-2">Código</label>
 						<div class="col-lg-4">
-							<input type="text" id="txtFolio" name="txtFolio" class="form-control" placeholder="" />
+							<input type="text" id="txtFolio" name="txtFolio" class="form-control" placeholder="" disabled="true" readonly="true"/>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="selTipo" class="col-lg-2">Tipo</label>
 						<div class="col-lg-4">
-							<select class="form-control" id="selTipo" name="selTipo">
+							<select class="form-control" id="selTipoCamion" name="selTipoCamion">
 								{foreach key=key item=item from=$tipoCamion}
 									<option value="{$item.idTipoCamion}">{$item.descripcion}
 								{/foreach}
@@ -66,13 +66,17 @@
 					<div class="form-group row">
 						<label for="txtFechaServicio" class="col-lg-2">Fecha cargo</label>
 						<div class="col-lg-3">
-							<input type="datetime" id="txtFechaServicio" name="txtFechaServicio" class="form-control" placeholder="Y-m-d H:i" />
+							<input type="datetime" id="txtFechaServicio" name="txtFechaServicio" class="form-control" placeholder="Y-m-d H:i" readonly="true"/>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="txtPresupuesto" class="col-lg-2">Presupuesto disponible</label>
 						<div class="col-lg-3">
 							<input type="text" id="txtPresupuesto" name="txtPresupuesto" class="form-control text-right" />
+						</div>
+						<label for="txtPeso" class="col-lg-2">Peso</label>
+						<div class="col-lg-3">
+							<input type="text" id="txtPeso" name="txtPeso" class="form-control text-right" placeholder="Toneladas" />
 						</div>
 					</div>
 					<div class="form-group row">
@@ -89,6 +93,7 @@
 				<div class="card-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 					<button type="submit" class="btn btn-primary">Guardar</button>
+					<input type="hidden" id="id" name="id" value=""/>
 				</div>
 			</div>
 		</form>

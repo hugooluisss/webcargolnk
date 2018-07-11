@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-07-11 09:45:38
+<?php /* Smarty version Smarty-3.1.11, created on 2018-07-11 13:31:00
          compiled from "templates/plantillas/modulos/ordenes/panel.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:610817645b460f15b75af0-05999706%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:112122305b463c6bc56763-18963708%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0b41b2cd4b65a3beb86339193dded29b382ba17c' => 
     array (
       0 => 'templates/plantillas/modulos/ordenes/panel.tpl',
-      1 => 1531320336,
+      1 => 1531331507,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '610817645b460f15b75af0-05999706',
+  'nocache_hash' => '112122305b463c6bc56763-18963708',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5b460f15bb1322_40381768',
+  'unifunc' => 'content_5b463c6bc88464_91223891',
   'variables' => 
   array (
     'tipoCamion' => 0,
@@ -27,7 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5b460f15bb1322_40381768')) {function content_5b460f15bb1322_40381768($_smarty_tpl) {?><div class="row">
+<?php if ($_valid && !is_callable('content_5b463c6bc88464_91223891')) {function content_5b463c6bc88464_91223891($_smarty_tpl) {?><div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">
 			Cargas
@@ -55,13 +55,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<div class="form-group row">
 						<label for="txtFolio" class="col-lg-2">Código</label>
 						<div class="col-lg-4">
-							<input type="text" id="txtFolio" name="txtFolio" class="form-control" placeholder="" />
+							<input type="text" id="txtFolio" name="txtFolio" class="form-control" placeholder="" disabled="true" readonly="true"/>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="selTipo" class="col-lg-2">Tipo</label>
 						<div class="col-lg-4">
-							<select class="form-control" id="selTipo" name="selTipo">
+							<select class="form-control" id="selTipoCamion" name="selTipoCamion">
 								<?php  $_smarty_tpl->tpl_vars['item'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['item']->_loop = false;
  $_smarty_tpl->tpl_vars['key'] = new Smarty_Variable;
  $_from = $_smarty_tpl->tpl_vars['tipoCamion']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -111,13 +111,17 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 					<div class="form-group row">
 						<label for="txtFechaServicio" class="col-lg-2">Fecha cargo</label>
 						<div class="col-lg-3">
-							<input type="datetime" id="txtFechaServicio" name="txtFechaServicio" class="form-control" placeholder="Y-m-d H:i" />
+							<input type="datetime" id="txtFechaServicio" name="txtFechaServicio" class="form-control" placeholder="Y-m-d H:i" readonly="true"/>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="txtPresupuesto" class="col-lg-2">Presupuesto disponible</label>
 						<div class="col-lg-3">
 							<input type="text" id="txtPresupuesto" name="txtPresupuesto" class="form-control text-right" />
+						</div>
+						<label for="txtPeso" class="col-lg-2">Peso</label>
+						<div class="col-lg-3">
+							<input type="text" id="txtPeso" name="txtPeso" class="form-control text-right" placeholder="Toneladas" />
 						</div>
 					</div>
 					<div class="form-group row">
@@ -134,6 +138,7 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 				<div class="card-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 					<button type="submit" class="btn btn-primary">Guardar</button>
+					<input type="hidden" id="id" name="id" value=""/>
 				</div>
 			</div>
 		</form>

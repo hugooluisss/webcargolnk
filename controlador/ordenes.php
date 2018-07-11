@@ -29,6 +29,8 @@ switch($objModulo->getId()){
 		$rs = $db->query($sql) or errorMySQL($db, $sql);
 		$datos = array();
 		while($row = $rs->fetch_assoc()){
+			$row['origen_json'] = json_decode($row['origen']);
+			$row['destino_json'] = json_decode($row['destino']);
 			$row['json'] = json_encode($row);
 			
 			array_push($datos, $row);
@@ -42,8 +44,8 @@ switch($objModulo->getId()){
 				$db = TBase::conectaDB();
 				$obj = new TOrden();
 				$obj->setId($_POST['id']);
-				$obj->tipoCamion = new TTipoCamion($_POST['usuario']);
-				$obj->estado = new TEstado($_POST['estado']);
+				$obj->tipoCamion = new TTipoCamion($_POST['tipoCamion']);
+				$obj->estado = new TEstado($_POST['estado'] == ''?1:$_POST['estado']);
 				
 				$obj->setCorreo($_POST['correo']);
 				$obj->setTelefono($_POST['telefono']);
@@ -52,11 +54,10 @@ switch($objModulo->getId()){
 				$obj->setOrigen($_POST['origen']);
 				$obj->setDestino($_POST['destino']);
 				$obj->setPresupuesto($_POST['presupuesto']);
-				$obj->setHora($_POST['hora']);
 				
 				$band = $obj->guardar();
 				
-				$smarty->assign("json", array("band" => $band));
+				$smarty->assign("json", array("band" => $band, "folio" => $obj->getFolio()));
 			break;
 			case 'del':
 				$obj = new TOrden($_POST['id']);

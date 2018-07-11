@@ -52,6 +52,10 @@
 	    <script type="text/javascript" src="{$PAGE.ruta}plugins/validate/validate.es.js"></script>
 	    <script type="text/javascript" src="{$PAGE.ruta}plugins/validate/validate.js"></script>
 	    
+	    <!-- Date time picker-->
+		<link rel="stylesheet" type="text/css" href="{$PAGE.ruta}plugins/datetimepicker/jquery.datetimepicker.min.css"/>
+		<script type="text/javascript" src="{$PAGE.ruta}plugins/datetimepicker/jquery.datetimepicker.full.min.js"></script>
+	    
 	    {foreach from=$PAGE.scriptsJS item=script}
 			<script type="text/javascript" src="{$script}?m={rand()}"></script>
 		{/foreach}

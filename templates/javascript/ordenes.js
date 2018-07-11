@@ -4,7 +4,11 @@ $(document).ready(function(){
 	var marca = null;
 	var campo = null;
 	
-	$("#txtFechaServicio").datepicker();
+	jQuery.datetimepicker.setLocale('es');
+	$("#txtFechaServicio").datetimepicker({
+		format:'Y-m-d H:i',
+		step: 30
+	});
 	getLista();
 	
 	$("#panelTabs li a[href=#add]").click(function(){
@@ -46,7 +50,6 @@ $(document).ready(function(){
 	$("#frmAdd").validate({
 		debug: true,
 		rules: {
-			txtFolio: "required",
 			selEstado: "required",
 			selTipoCamion: "required",
 			txtDescripcion: "required",
@@ -77,14 +80,16 @@ $(document).ready(function(){
 				origen: $("#txtOrigen").attr("json"),
 				destino: $("#txtDestino").attr("json"),
 				presupuesto: $("#txtPresupuesto").val(),
+				peso: $("#txtPeso").val(),
 				fn: {
 					after: function(datos){
 						if (datos.band){
 							getLista();
 							$("#frmAdd").get(0).reset();
 							$('#panelTabs a[href="#listas"]').tab('show');
+							alert("La orden fue guardada con el folio " + datos.folio);
 						}else{
-							alert("Upps... " + datos.mensaje);
+							alert("No se pudo guardar la orden");
 						}
 					}
 				}
@@ -112,8 +117,8 @@ $(document).ready(function(){
 				var el = jQuery.parseJSON($(this).attr("datos"));
 				
 				$("#id").val(el.idOrden);
+				$("#txtFolio").val(el.folio);
 				$("#selTipoCamion").val(el.idTipoCamion);
-				getOperadores();
 				$("#selEstado").val(el.idEstado);
 				
 				$("#txtDescripcion").val(el.descripcion);
@@ -134,7 +139,7 @@ $(document).ready(function(){
 				
 				try{
 					var destino = jQuery.parseJSON(el.destino);
-					$("#txtOrigen").val(destino.direccion);
+					$("#txtDestino").val(destino.direccion);
 				}catch(err){
 					alert("No se pudo determinar el punto de destino");
 					console.log(el.destino);

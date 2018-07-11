@@ -1,30 +1,30 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-07-11 09:31:47
+<?php /* Smarty version Smarty-3.1.11, created on 2018-07-11 12:21:27
          compiled from "templates/plantillas/modulos/ordenes/lista.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:9760378275b4614d36ee5c1-79143304%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:20445407125b463c6ca04071-92225737%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ccb83fbda49be8284838e579fad0d10480204fd4' => 
     array (
       0 => 'templates/plantillas/modulos/ordenes/lista.tpl',
-      1 => 1531319460,
+      1 => 1531329684,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '9760378275b4614d36ee5c1-79143304',
+  'nocache_hash' => '20445407125b463c6ca04071-92225737',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5b463c6ca3dca4_31330993',
   'variables' => 
   array (
     'lista' => 0,
     'row' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5b4614d37bdd03_89222501',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5b4614d37bdd03_89222501')) {function content_5b4614d37bdd03_89222501($_smarty_tpl) {?><div class="box">
+<?php if ($_valid && !is_callable('content_5b463c6ca3dca4_31330993')) {function content_5b463c6ca3dca4_31330993($_smarty_tpl) {?><div class="box">
 	<div class="box-body">
 		<table id="tblDatos" class="table table-bordered table-hover">
 			<thead>
@@ -58,11 +58,9 @@ $_smarty_tpl->tpl_vars["row"]->_loop = true;
 						</td>
 						<td class="text-right" style="width: 80px;">
 							<button type="button" class="btn btn-success btn-xs" action="puntos" title="Puntos de entrega" datos='<?php echo $_smarty_tpl->tpl_vars['row']->value['json'];?>
-' data-toggle="modal" data-target="#winIntermedios"><i class="fa fa-map-marker"></i></button>
+' data-toggle="modal" data-target="#winIntermedios"><i class="fas fa-map-marker"></i></button>
 							<button type="button" class="btn btn-success btn-xs" action="modificar" title="Modificar" datos='<?php echo $_smarty_tpl->tpl_vars['row']->value['json'];?>
-'"><i class="fa fa-pencil"></i></button>
-							<button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#winSeguimiento" action="mapa" title="Consultar transporte" datos='<?php echo $_smarty_tpl->tpl_vars['row']->value['json'];?>
-'><i class="fa fa-map-o"></i></button>
+'"><i class="fas fa-edit"></i></button>
 						</td>
 					</tr>
 				<?php } ?>

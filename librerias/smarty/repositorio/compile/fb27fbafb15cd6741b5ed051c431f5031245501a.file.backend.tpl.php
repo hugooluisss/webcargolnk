@@ -1,30 +1,30 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-07-06 13:53:36
+<?php /* Smarty version Smarty-3.1.11, created on 2018-07-11 12:20:43
          compiled from "templates/plantillas/layout/backend.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:12753549775b352ed6494ed3-83892420%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:3250420035b463c6bb87359-78537734%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'fb27fbafb15cd6741b5ed051c431f5031245501a' => 
     array (
       0 => 'templates/plantillas/layout/backend.tpl',
-      1 => 1530902838,
+      1 => 1531326340,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '12753549775b352ed6494ed3-83892420',
+  'nocache_hash' => '3250420035b463c6bb87359-78537734',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5b352ed651a8c9_79364114',
   'variables' => 
   array (
     'PAGE' => 0,
     'script' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5b463c6bc4fe60_70537613',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5b352ed651a8c9_79364114')) {function content_5b352ed651a8c9_79364114($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/Library/WebServer/Documents/web-cargolink/librerias/smarty/plugins/modifier.date_format.php';
+<?php if ($_valid && !is_callable('content_5b463c6bc4fe60_70537613')) {function content_5b463c6bc4fe60_70537613($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/Library/WebServer/Documents/web-cargolink/librerias/smarty/plugins/modifier.date_format.php';
 ?><!DOCTYPE html>
 <html>
 	<head>
@@ -119,6 +119,12 @@ plugins/DataTables/lenguaje/ES-mx.js"></script>
 plugins/DataTables/datatables.min.css"/>
 		<script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 plugins/DataTables/datatables.min.js"></script>
+		
+		<!-- Date time picker-->
+		<link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/datetimepicker/jquery.datetimepicker.min.css"/>
+		<script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 
 	    <?php  $_smarty_tpl->tpl_vars['script'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['script']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['PAGE']->value['scriptsJS']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

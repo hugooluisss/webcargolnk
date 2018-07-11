@@ -1,30 +1,32 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-06-28 12:23:40
+<?php /* Smarty version Smarty-3.1.11, created on 2018-07-11 12:59:26
          compiled from "templates/plantillas/modulos/frontend/winRegistroCarga.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:10857213895b328275e34429-45765645%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:8258560085b463cb69b85a3-21801704%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '332b2c9af26938544ea3453b58076415240cc828' => 
     array (
       0 => 'templates/plantillas/modulos/frontend/winRegistroCarga.tpl',
-      1 => 1530206619,
+      1 => 1531331414,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '10857213895b328275e34429-45765645',
+  'nocache_hash' => '8258560085b463cb69b85a3-21801704',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5b328275e36726_65530583',
+  'unifunc' => 'content_5b463cb6a984c9_29770723',
   'variables' => 
   array (
     'PAGE' => 0,
+    'tipoCamion' => 0,
+    'item' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5b328275e36726_65530583')) {function content_5b328275e36726_65530583($_smarty_tpl) {?><div class="modal modal-limpia" tabindex="-1" role="dialog" id="winRegistraCarga">
-	<form id="frmRegistraCarga">
+<?php if ($_valid && !is_callable('content_5b463cb6a984c9_29770723')) {function content_5b463cb6a984c9_29770723($_smarty_tpl) {?><div class="modal modal-limpia" tabindex="-1" role="dialog" id="winRegistraCarga">
+	<form id="frmRegistraCarga" onsubmit="javascript: return false;">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -67,7 +69,7 @@ logo.png" class="img-fluid" />
 					</div>
 					<div class="row">
 						<div class="col-md-6">
-							<input id="txtFecha" name="txtFecha" class="form-control" placeholder="Agenda de carga"/>
+							<input id="txtFechaServicio" name="txtFechaServicio" class="form-control" placeholder="Agenda de carga"/>
 						</div>
 						<div class="col-md-6">
 							<input id="txtPeso" name="txtPeso" class="form-control" placeholder="Peso (ton)"/>
@@ -77,6 +79,17 @@ logo.png" class="img-fluid" />
 						<div class="col-md-6">
 							<select id="selCamion" name="selCamion" class="form-control">
 								<option value="">Tipo de camión</option>
+								<?php  $_smarty_tpl->tpl_vars['item'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['item']->_loop = false;
+ $_smarty_tpl->tpl_vars['key'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['tipoCamion']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['item']->key => $_smarty_tpl->tpl_vars['item']->value){
+$_smarty_tpl->tpl_vars['item']->_loop = true;
+ $_smarty_tpl->tpl_vars['key']->value = $_smarty_tpl->tpl_vars['item']->key;
+?>
+									<option value="<?php echo $_smarty_tpl->tpl_vars['item']->value['idTipoCamion'];?>
+"><?php echo $_smarty_tpl->tpl_vars['item']->value['descripcion'];?>
+
+								<?php } ?>
 							</select>
 						</div>
 						<div class="col-md-6">
@@ -85,13 +98,13 @@ logo.png" class="img-fluid" />
 					</div>
 					<div class="row">
 						<div class="col-12">
-							<textarea id="selDetalle" name="selDetalle" placeholder="Detalle de la carga" class="form-control" rows="5"></textarea>
+							<textarea id="txtDescripcion" name="txtDescripcion" placeholder="Detalle de la carga" class="form-control" rows="5"></textarea>
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary">Save changes</button>
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Guardar</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 				</div>
 			</div>
 		</div>

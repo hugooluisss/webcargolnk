@@ -79,6 +79,53 @@ class TOrden{
 	}
 	
 	/**
+	* Establece el folio
+	*
+	* @autor Hugo
+	* @access public
+	* @param string $val Valor a asignar
+	* @return boolean True si se realizó sin problemas
+	*/
+	
+	public function setFolio($val = ''){
+		$this->folio = $val;
+		return true;
+	}
+	
+	/**
+	* Retorna el teléfono
+	*
+	* @autor Hugo
+	* @access public
+	* @return string Texto
+	*/
+	
+	public function getFolio($generar = false){
+		if ($generar == true and $this->folio == ''){
+			$db = TBase::conectaDB();
+			$band = false;
+			$sql = "select * from configuracion where campo = '".date("Y")."'";
+			$rs = $db->query($sql) or errorMySQL($db, $sql);
+			$row = $rs->fetch_assoc();
+			
+			while(!$band){
+				$folio = date("Y").sprintf("%04d", ++$row['folio']);
+				$sql = "select folio from orden where folio = '".$folio."'";
+				$rs = $db->query($sql) or errorMySQL($db, $sql);
+				
+				$band = $rs->num_rows == 0;
+			}
+			
+			$sql = "update orden set folio = ".$folio." where campo = 'folio'";
+			$db->query($sql) or errorMySQL($db, $sql);
+			
+			$this->folio = $folio;
+		}
+		
+		return $this->folio;
+	}
+	
+	/**
 	* Establece el teléfono
 	*
 	* @autor Hugo
@@ -193,6 +240,10 @@ class TOrden{
 	
 	public function setOrigen($val = ''){
 		$this->origen = $val;
+		$obj = json_decode($this->getOrigen());
+		$this->latitude = $obj->latitude;
+		$this->longitude = $obj->longitude;
+		
 		return true;
 	}
 	
@@ -206,6 +257,30 @@ class TOrden{
 	
 	public function getOrigen(){
 		return $this->origen;
+	}
+	
+	/**
+	* Retorna la latitude
+	*
+	* @autor Hugo
+	* @access public
+	* @return string Texto
+	*/
+	
+	public function getLatitude(){
+		return $this->latitude == ''?0:$this->latitude;
+	}
+	
+	/**
+	* Retorna la longitude
+	*
+	* @autor Hugo
+	* @access public
+	* @return string Texto
+	*/
+	
+	public function getLongitude(){
+		return $this->longitude == ''?0:$this->longitude;
 	}
 		
 	/**
@@ -259,6 +334,32 @@ class TOrden{
 	public function getPresupuesto(){
 		return $this->presupuesto == ''?0:$this->presupuesto;
 	}
+	
+	/**
+	* Establece el peso
+	*
+	* @autor Hugo
+	* @access public
+	* @param string $val Valor a asignar
+	* @return boolean True si se realizó sin problemas
+	*/
+	
+	public function setPeso($val = 0){
+		$this->peso = $val;
+		return true;
+	}
+	
+	/**
+	* Retorna el presupuesto
+	*
+	* @autor Hugo
+	* @access public
+	* @return string Texto
+	*/
+	
+	public function getPeso(){
+		return $this->peso == ''?0:$this->peso;
+	}
 
 	/**
 	* Guarda los datos en la base de datos, si no existe un identificador entonces crea el objeto
@@ -276,7 +377,7 @@ class TOrden{
 		
 		if ($this->getId() == ''){
 			$sql = "INSERT INTO orden(idTipoCamion, idEstado) VALUES(".$this->tipoCamion->getId().", ".$this->estado->getId().");";
-			$rs = $db->query($sql) or errorMySQL($db, $sql);;
+			$rs = $db->query($sql) or errorMySQL($db, $sql);
 			if (!$rs) return false;
 			
 			$this->idOrden = $db->insert_id;
@@ -287,14 +388,20 @@ class TOrden{
 		
 		$sql = "UPDATE orden
 			SET
-				idTipoCamion = ".$this->usuario->getId().",
+				folio = '".$this->getFolio(true)."',
+				idTipoCamion = ".$this->tipoCamion->getId().",
 				idEstado = ".$this->estado->getId().",
 				descripcion = '".$this->getDescripcion()."',
 				fechaservicio = '".$this->getFechaServicio()."',
+				latitude = ".$this->getLatitude().",
+				longitude = ".$this->getLongitude().",
 				origen = '".$this->getOrigen()."',
 				destino = '".$this->getDestino()."',
 				presupuesto = ".$this->getPresupuesto().",
-			WHERE idorden = ".$this->getId();
+				correo = '".$this->getCorreo()."',
+				telefono = '".$this->getTelefono()."',
+				peso = ".$this->getPeso()."
+			WHERE idOrden = ".$this->getId();
 			
 		$rs = $db->query($sql) or errorMySQL($db, $sql);
 					

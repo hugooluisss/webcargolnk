@@ -3,6 +3,72 @@ $(document).ready(function(){
 	var posicion;
 	var marca = new google.maps.Marker({});
 	var target;
+	
+	jQuery.datetimepicker.setLocale('es');
+	$("#txtFechaServicio").datetimepicker({
+		format:'Y-m-d H:i',
+		step: 30
+	});
+	
+	$("#frmRegistraCarga").validate({
+		debug: true,
+		rules: {
+			selCamion: "required",
+			txtDescripcion: "required",
+			txtFechaServicio: "required",
+			txtOrigen: "required",
+			txtDestino: "required",
+			txtCorreo: {
+				"required": true,
+				"email": true
+			},
+			txtTelefono: "required",
+			txtPeso: "required",
+			txtTarifa: {
+				required: true,
+				number: true
+			}
+		},
+		wrapper: 'span', 
+		submitHandler: function(form){
+			var obj = new TOrden;
+			obj.add({
+				id: $("#id").val(), 
+				tipoCamion: $("#selCamion").val(),
+				telefono: $("#txtTelefono").val(),
+				correo: $("#txtCorreo").val(),
+				descripcion: $("#txtDescripcion").val(),
+				fechaServicio: $("#txtFechaServicio").val(),
+				origen: $("#txtOrigen").attr("json"),
+				destino: $("#txtDestino").attr("json"),
+				presupuesto: $("#txtTarifa").val(),
+				peso: $("#txtPeso").val(),
+				fn: {
+					after: function(datos){
+						if (datos.band){
+							$("#winRegistraCarga").modal("hide");
+							$("#frmRegistraCarga")[0].reset();
+							$("#txtOrigen").val("");
+							$("#txtOrigen").attr("latitude", "");
+							$("#txtOrigen").attr("longitude", "");
+							$("#txtDestino").val("");
+							$("#txtDestino").attr("latitude", "");
+							$("#txtDestino").attr("longitude", "");
+							
+							alert("La orden fue guardada con el folio " + datos.folio);
+						}else{
+							alert("No se pudo guardar la orden");
+						}
+					}
+				}
+			});
+        }
+
+    });
+	
+	
+	
+	
 	$("#winMapa").on('shown.bs.modal', function(e){
 		$("#winRegistraCarga").modal("hide");
 		
@@ -33,6 +99,13 @@ $(document).ready(function(){
 		$(target.attr("data-text")).val($("#txtDireccion").val());
 		$(target.attr("data-text")).attr("latitude", posicion.latitude);
 		$(target.attr("data-text")).attr("longitude", posicion.longitude);
+		
+		var json = new Object;
+		json.latitude = posicion.latitude;
+		json.longitude = posicion.longitude;
+		json.direccion = $("#txtDireccion").val();
+		
+		$(target.attr("data-text")).attr("json", JSON.stringify(json));
 		
 		$("#winMapa").modal("hide");
 	});

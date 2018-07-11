@@ -22,6 +22,7 @@ $modulo = $_GET['mod'] == ''?(isset($sesion['usuario'])?MODULO_SESION_INICIADA:M
 
 header('Content-Type: text/html; charset=UTF-8');
 setlocale(LC_ALL, "es_ES.UTF-8");
+setlocale(LC_NUMERIC, "en_US");
 date_default_timezone_set("America/Mexico_City");
 
 #librerias

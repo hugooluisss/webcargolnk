@@ -20,6 +20,6 @@ $conf['listaordenes'] = array(
 $conf['cordenes'] = array(
 	'controlador' => 'ordenes.php',
 	'descripcion' => 'Controlador de ordenes',
-	'seguridad' => true,
+	'seguridad' => false,
 	'capa' => LAYOUT_JSON);
 ?>

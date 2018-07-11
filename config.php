@@ -14,10 +14,11 @@ define('LAYOUT_JSON', 'layout/json.tpl');
 #Login y su controlador
 $conf['inicio'] = array(
 	'vista' => 'frontend/home.tpl',
+	'controlador' => 'frontend.php',
 	'titulo' => 'Bienvenido',
 	'descripcion' => 'Bienvenido',
 	'seguridad' => false,
-	'js' => array('usuario.class.js'),
+	'js' => array('orden.class.js', 'usuario.class.js'),
 	'jsTemplate' => array('home.js', 'login.js'),
 	'capa' => LAYOUT_FRONTEND);
 
