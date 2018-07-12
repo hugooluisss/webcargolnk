@@ -18,7 +18,7 @@
 							<input id="txtCorreo" name="txtCorreo" class="form-control" placeholder="Correo electrónico" type="email" />
 						</div>
 						<div class="col-md-6">
-							<input id="txtTelefono" name="txtTelefono" class="form-control" placeholder="Teléfono" type="tel" />
+							<input id="txtTelefonoReg" name="txtTelefonoReg" class="form-control" placeholder="Teléfono" type="tel" />
 						</div>
 					</div>
 					<div class="row">

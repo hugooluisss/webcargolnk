@@ -73,7 +73,7 @@ $(document).ready(function(){
 				id: $("#id").val(), 
 				estado: $("#selEstado").val(),
 				tipoCamion: $("#selTipoCamion").val(),
-				telefono: $("#txtTelefono").val(),
+				telefono: $("#txtTelefonoReg").val(),
 				correo: $("#txtCorreo").val(),
 				descripcion: $("#txtDescripcion").val(),
 				fechaServicio: $("#txtFechaServicio").val(),
