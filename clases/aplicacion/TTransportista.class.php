@@ -18,6 +18,7 @@ class TTransportista{
 	private $pass;
 	private $calificacion;
 	private $aprobado;
+	private $telefono;
 	
 	private $visible;
 	
@@ -59,8 +60,6 @@ class TTransportista{
 					$this->$field = $val;
 			}
 		}
-		
-		$this->getRegiones();
 		
 		return true;
 	}
@@ -208,6 +207,32 @@ class TTransportista{
 	}
 	
 	/**
+	* Establece el celular
+	*
+	* @autor Hugo
+	* @access public
+	* @param string $val Valor a asignar
+	* @return boolean True si se realizó sin problemas
+	*/
+	
+	public function setTelefono($val = ""){
+		$this->telefono = $val;
+		return true;
+	}
+	
+	/**
+	* Retorna el celular
+	*
+	* @autor Hugo
+	* @access public
+	* @return string Texto
+	*/
+	
+	public function getTelefono(){
+		return $this->telefono;
+	}
+	
+	/**
 	* Establece la contraseña
 	*
 	* @autor Hugo
@@ -242,7 +267,7 @@ class TTransportista{
 	* @return boolean True si se realizó sin problemas
 	*/
 	
-	public function setCalificacion($val = ""){
+	public function setCalificacion($val = 0){
 		$this->calificacion = $val;
 		return true;
 	}
@@ -256,7 +281,7 @@ class TTransportista{
 	*/
 	
 	public function getCalificacion(){
-		return $this->calificacion;
+		return $this->calificacion == ''?0:$this->calificacion;
 	}
 	
 	/**
@@ -282,7 +307,7 @@ class TTransportista{
 	*/
 	
 	public function getAprobado(){
-		return $this->aprobado == 1;
+		return $this->aprobado == 1?1:0;
 	}
 	
 	/**
@@ -325,7 +350,7 @@ class TTransportista{
 		$db = TBase::conectaDB();
 		
 		if ($this->getId() == ''){
-			$sql = "INSERT INTO transportista(idTipoCarro, situacion, visible) VALUES(".$this->tipoCamion->getId().", '".$this->getSituacion()."', 1);";
+			$sql = "INSERT INTO transportista(idTipoCamion, situacion, visible) VALUES(".$this->tipoCamion->getId().", '".$this->getSituacion()."', 1);";
 			$rs = $db->query($sql) or errorMySQL($db, $sql);
 			
 			if (!$rs) return false;
@@ -344,11 +369,12 @@ class TTransportista{
 				representante = '".$this->getRepresentante()."',
 				patente = '".$this->getPatente()."',
 				correo = '".$this->getCorreo()."',
-				celular = '".$this->getCelular()."',
-				pass = '".$this->getPass()."'
+				telefono = '".$this->getTelefono()."',
+				pass = '".$this->getPass()."',
 				calificacion = ".$this->getCalificacion().",
 				aprobado = ".$this->getAprobado().",
-				situacion = '".$this->getRazonSocial()."'
+				situacion = '".$this->getSituacion()."',
+				telefono = '".$this->getTelefono()."'
 			WHERE idTransportista = ".$this->getId();
 			
 		$rs = $db->query($sql) or errorMySQL($db, $sql);

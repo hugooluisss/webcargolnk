@@ -33,15 +33,15 @@ switch($objModulo->getId()){
 		switch($objModulo->getAction()){
 			case 'add':
 				$db = TBase::conectaDB();
-				$obj = new TTransportistas();
+				$obj = new TTransportista();
 				
-				$rs = $db->query("select idTransportista from transportista where correo = '".$_POST['clave']."'");
+				$rs = $db->query("select idTransportista from transportista where correo = '".$_POST['correo']."'");
 				
 				if ($rs->num_rows > 0){ #si es que encontró la clave
 					$row = $rs->fetch_assoc();
 					if ($row["idTransportista"] <> $_POST['id']){
 						$obj->setId($row['idTransportista']);
-						echo json_encode(array("band" => false, "mensaje" => "El correo ya se encuentra registrado con otro transportista: ".$obj->getRazonSocial()));
+						$smarty->assign("json", array("band" => false, "mensaje" => "El correo ya se encuentra registrado con otro transportista: ".$obj->getRazonSocial()));
 						exit(1);
 					}
 				}
@@ -49,7 +49,7 @@ switch($objModulo->getId()){
 				$obj = new TTransportista();
 				
 				$obj->setId($_POST['id']);
-				$obj->setRazonSocial($_POST['razonsocial']);
+				$obj->setRazonSocial($_POST['razonSocial']);
 				$obj->tipoCamion->setId($_POST['tipoCamion']);
 				$obj->setRUT($_POST['rut']);
 				$obj->setRepresentante($_POST['representante']);
@@ -58,20 +58,21 @@ switch($objModulo->getId()){
 				$obj->setPass($_POST['pass']);
 				$obj->setCalificacion($_POST['calificacion']);
 				$obj->setAprobado($_POST['aprobado']);
+				$obj->setTelefono($_POST['telefono']);
 				$band = $obj->guardar();
 				
 				$smarty->assign("json", array("band" => $band));
 			break;
 			case 'del':
-				$obj = new TTransporitsta($_POST['usuario']);
+				$obj = new TTransportista($_POST['id']);
 				$smarty->assign("json", array("band" => $obj->eliminar()));
 			break;
 			case 'validarEmail':
 				$db = TBase::conectaDB();
 				if ($_POST['id'] == '')
-					$rs = $db->query("select idTransportista from transporitsta where upper(correo) = upper('".$_POST['txtCorreo']."')");
+					$rs = $db->query("select idTransportista from transportista where upper(correo) = upper('".$_POST['txtCorreo']."')");
 				else
-					$rs = $db->query("select idTransportista from transporitsta where upper(correo) = upper('".$_POST['txtCorreo']."') and not idTransportista = ".$_POST['id']);
+					$rs = $db->query("select idTransportista from transportista where upper(correo) = upper('".$_POST['txtCorreo']."') and not idTransportista = ".$_POST['id']);
 					
 				echo $rs->num_rows == 0?"true":"false";
 			break;

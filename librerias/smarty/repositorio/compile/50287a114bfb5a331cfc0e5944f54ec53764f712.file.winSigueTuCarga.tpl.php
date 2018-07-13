@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-07-11 12:21:58
+<?php /* Smarty version Smarty-3.1.11, created on 2018-07-12 09:52:13
          compiled from "templates/plantillas/modulos/frontend/winSigueTuCarga.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13604088025b463cb6acf2b3-41414149%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '50287a114bfb5a331cfc0e5944f54ec53764f712' => 
     array (
       0 => 'templates/plantillas/modulos/frontend/winSigueTuCarga.tpl',
-      1 => 1530206891,
+      1 => 1530212565,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5b463cb6b1c379_96957115',
   'variables' => 
   array (
     'PAGE' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5b463cb6b1c379_96957115',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5b463cb6b1c379_96957115')) {function content_5b463cb6b1c379_96957115($_smarty_tpl) {?><div class="modal modal-limpia" tabindex="-1" role="dialog" id="winSigueTuCarga">
 	<div class="modal-dialog" role="document">

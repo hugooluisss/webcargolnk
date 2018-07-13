@@ -116,7 +116,7 @@ class TOrden{
 				$band = $rs->num_rows == 0;
 			}
 			
-			$sql = "update orden set folio = ".$folio." where campo = 'folio'";
+			$sql = "update configuracion set folio = ".$folio." where campo = '".date("Y")."'";
 			$db->query($sql) or errorMySQL($db, $sql);
 			
 			$this->folio = $folio;

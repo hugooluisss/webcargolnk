@@ -32,7 +32,7 @@ $(document).ready(function(){
 		},
 		wrapper: 'span',
 		submitHandler: function(form){
-			var obj = new TTransportistas;
+			var obj = new TTransportista;
 			obj.add({
 				id: $("#id").val(), 
 				tipoCamion: $("#selTipoCamion").val(), 
@@ -45,6 +45,7 @@ $(document).ready(function(){
 				calificacion: $("#selCalificacion").val(), 
 				aprobado: $("#selAprobado").val(), 
 				situacion: $("#selSituacion").val(), 
+				telefono: $("#txtTelefono").val(),
 				fn: {
 					after: function(datos){
 						if (datos.band){
@@ -62,12 +63,12 @@ $(document).ready(function(){
     });
 		
 	function getLista(){
-		$.get("listatipocamion", function(data) {
+		$.get("listatransportistas", function(data) {
 			$("#dvLista").html(data);
 			
 			$("[action=eliminar]").click(function(){
 				if(confirm("¿Seguro?")){
-					var obj = new TTipoCamion;
+					var obj = new TTransportista;
 					obj.del({
 						"id": $(this).attr("identificador"), 
 						fn: {
@@ -82,8 +83,18 @@ $(document).ready(function(){
 			$("[action=modificar]").click(function(){
 				var el = jQuery.parseJSON($(this).attr("datos"));
 				
-				$("#id").val(el.idTipoCamion);
-				$("#txtDescripcion").val(el.descripcion);
+				$("#id").val(el.idTransportista);
+				$("#txtRazonSocial").val(el.razonsocial);
+				$("#txtRepresentante").val(el.representante);
+				$("#txtPatente").val(el.patente);
+				$("#txtRUT").val(el.rut);
+				$("#txtCorreo").val(el.correo);
+				$("#txtTelefono").val(el.telefono);
+				$("#txtPass").val(el.pass);
+				$("#selCalificacion").val(el.calificacion);
+				$("#selAprobado").val(el.aprobado);
+				$("#selSituacion").val(el.idSituacion);
+				$("#selTipoCamion").val(el.idTipoCamion);
 				$('#panelTabs a[href="#add"]').tab('show');
 			});
 			

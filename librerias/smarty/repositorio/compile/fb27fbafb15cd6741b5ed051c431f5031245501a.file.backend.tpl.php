@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-07-11 12:20:43
+<?php /* Smarty version Smarty-3.1.11, created on 2018-07-12 10:22:21
          compiled from "templates/plantillas/layout/backend.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3250420035b463c6bb87359-78537734%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fb27fbafb15cd6741b5ed051c431f5031245501a' => 
     array (
       0 => 'templates/plantillas/layout/backend.tpl',
-      1 => 1531326340,
+      1 => 1531346456,
       2 => 'file',
     ),
   ),
@@ -15,16 +15,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5b463c6bc4fe60_70537613',
   'variables' => 
   array (
     'PAGE' => 0,
     'script' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5b463c6bc4fe60_70537613',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5b463c6bc4fe60_70537613')) {function content_5b463c6bc4fe60_70537613($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/Library/WebServer/Documents/web-cargolink/librerias/smarty/plugins/modifier.date_format.php';
+<?php if ($_valid && !is_callable('content_5b463c6bc4fe60_70537613')) {function content_5b463c6bc4fe60_70537613($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/Library/WebServer/Documents/cargolink-web/librerias/smarty/plugins/modifier.date_format.php';
 ?><!DOCTYPE html>
 <html>
 	<head>

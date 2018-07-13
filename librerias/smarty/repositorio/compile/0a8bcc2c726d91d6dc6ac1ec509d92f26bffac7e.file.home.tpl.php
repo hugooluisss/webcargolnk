@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-07-11 12:21:58
+<?php /* Smarty version Smarty-3.1.11, created on 2018-07-12 09:52:13
          compiled from "templates/plantillas/modulos/frontend/home.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13241196705b463cb69690f7-40589359%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0a8bcc2c726d91d6dc6ac1ec509d92f26bffac7e' => 
     array (
       0 => 'templates/plantillas/modulos/frontend/home.tpl',
-      1 => 1530206503,
+      1 => 1530212565,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5b463cb69b4d62_73402378',
   'variables' => 
   array (
     'PAGE' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5b463cb69b4d62_73402378',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5b463cb69b4d62_73402378')) {function content_5b463cb69b4d62_73402378($_smarty_tpl) {?><div class="container">
 	<div class="row">

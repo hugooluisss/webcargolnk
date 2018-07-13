@@ -8,15 +8,15 @@ $ini = array(
 		"slogan" => "",
 		"template" => "default",
 		"ssl" => "no",
-		"url" => "http://localhost/web-cargolink/"
+		"url" => "http://localhost/cargolink-web/"
 	),
-	"conexion_" => array(
+	"conexion" => array(
 		"server" => "localhost",
 		"user" => "root",
 		"pass" => "k0rgk0rg",
-		"db" => "merz"
+		"db" => "cargolink"
 	),
-	"conexion" => array(
+	"conexion_" => array(
 		"server" => "192.168.2.4",
 		"user" => "huguntu",
 		"pass" => "k0rgk0rg",

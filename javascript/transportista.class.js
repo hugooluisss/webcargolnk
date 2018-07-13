@@ -4,11 +4,11 @@ TTransportista = function(){
 	this.add = function(datos){
 		if (datos.fn.before !== undefined) datos.fn.before();
 		
-		$.post('ctransportista', {
+		$.post('ctransportistas', {
 				"id": datos.id,
 				"razonSocial": datos.razonSocial,
 				"tipoCamion": datos.tipoCamion,
-				"representante": datos.email, 
+				"representante": datos.representante, 
 				"rut": datos.rut,
 				"patente": datos.patente,
 				"correo": datos.correo,
@@ -16,6 +16,7 @@ TTransportista = function(){
 				"calificacion": datos.calificacion,
 				"aprobado": datos.aprobado,
 				"situacion": datos.situacion,
+				"telefono": datos.telefono,
 				"action": "add"
 			}, function(data){
 				if (data.band == false)
@@ -28,7 +29,7 @@ TTransportista = function(){
 	
 	this.del = function(datos){
 		if (datos.fn.before !== undefined) datos.fn.before();
-		$.post('ctransportista', {
+		$.post('ctransportistas', {
 			"id": datos.id,
 			"action": "del"
 		}, function(data){

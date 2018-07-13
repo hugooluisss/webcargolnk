@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-07-11 12:59:26
+<?php /* Smarty version Smarty-3.1.11, created on 2018-07-12 09:52:13
          compiled from "templates/plantillas/modulos/frontend/winRegistroCarga.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:8258560085b463cb69b85a3-21801704%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '332b2c9af26938544ea3453b58076415240cc828' => 
     array (
       0 => 'templates/plantillas/modulos/frontend/winRegistroCarga.tpl',
-      1 => 1531331414,
+      1 => 1531407027,
       2 => 'file',
     ),
   ),
@@ -46,7 +46,7 @@ logo.png" class="img-fluid" />
 							<input id="txtCorreo" name="txtCorreo" class="form-control" placeholder="Correo electrónico" type="email" />
 						</div>
 						<div class="col-md-6">
-							<input id="txtTelefono" name="txtTelefono" class="form-control" placeholder="Teléfono" type="tel" />
+							<input id="txtTelefonoReg" name="txtTelefonoReg" class="form-control" placeholder="Teléfono" type="tel" />
 						</div>
 					</div>
 					<div class="row">
