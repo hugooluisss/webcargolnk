@@ -32,9 +32,9 @@
 					<div class="form-group row">
 						<label for="selPerfil" class="col-md-2">Tipo Camion</label>
 						<div class="col-md-4">
-							<select class="form-control" id="selPerfil" name="selPerfil">
+							<select class="form-control" id="selTipoCamion" name="selTipoCamion">
 								{foreach key=key item=item from=$tipoCamion}
-									<option value="{$item.idTipo}">{$item.descripcion}</option>
+									<option value="{$item.idTipoCamion}">{$item.descripcion}</option>
 								{/foreach}
 							</select>
 						</div>
@@ -95,6 +95,8 @@
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
 							</select>
 						</div>
 					</div>
@@ -108,3 +110,5 @@
 		</form>
 	</div>
 </div>
+
+{include file=$PAGE.rutaModulos|cat:"modulos/transportistas/winUpload.tpl"}

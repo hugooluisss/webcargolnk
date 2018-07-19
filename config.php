@@ -8,6 +8,7 @@ define('STATUS', 'En desarrollo');
 
 define('LAYOUT_FRONTEND', 'layout/frontend.tpl');
 define('LAYOUT_BACKEND', 'layout/backend.tpl');
+define('LAYOUT_BACKENDCLIENTE', 'layout/backend-cliente.tpl');
 define('LAYOUT_AJAX', 'layout/update.tpl');
 define('LAYOUT_JSON', 'layout/json.tpl');
 

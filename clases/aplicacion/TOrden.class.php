@@ -9,6 +9,7 @@ class TOrden{
 	private $idOrden;
 	public $estado;
 	public $tipoCamion;
+	public $transportista;
 	private $correo;
 	private $telefono;
 	private $descripcion;
@@ -29,6 +30,8 @@ class TOrden{
 	public function TOrden($id = ''){
 		$this->estado = new TEstado(1);
 		$this->tipoCamion = new TTipoCamion();
+		$this->transportista = new TTransportista();
+		
 		$this->setId($id);
 		
 		return true;
@@ -47,7 +50,7 @@ class TOrden{
 		if ($id == '') return false;
 		
 		$db = TBase::conectaDB();
-		$sql = "select * from orden where idOrden = ".$id;
+		$sql = "select *, X(salida) AS latitude, Y(salida) AS longitude from orden where idOrden = ".$id;
 		$rs = $db->query($sql) or errorMySQL($db, $sql);
 		
 		foreach($rs->fetch_assoc() as $field => $val){
@@ -63,6 +66,12 @@ class TOrden{
 				break;
 			}
 		}
+		
+		$sql = "select idTransportista from asignadotransportista where idOrden = ".$id;
+		$rs = $db->query($sql) or errorMySQL($db, $sql);
+		$row = $rs->fetch_assoc();
+		$this->transportista = new TTransportista($row['idTransportista']);
+		
 		return true;
 	}
 	
@@ -393,8 +402,7 @@ class TOrden{
 				idEstado = ".$this->estado->getId().",
 				descripcion = '".$this->getDescripcion()."',
 				fechaservicio = '".$this->getFechaServicio()."',
-				latitude = ".$this->getLatitude().",
-				longitude = ".$this->getLongitude().",
+				salida = point(".$this->getLatitude().", ".$this->getLongitude()."),
 				origen = '".$this->getOrigen()."',
 				destino = '".$this->getDestino()."',
 				presupuesto = ".$this->getPresupuesto().",
@@ -446,8 +454,8 @@ class TOrden{
 		$rs = $db->query($sql) or errorMySQL($db, $sql);
 		$row = $rs->fetch_assoc();
 		
-		if ($row['total'] >= $this->getPropuestas()){
-			$this->estado->setId(3);
+		if ($row['total'] >= 5){
+			$this->estado->setId(2);
 			$this->guardar();
 		}
 		
@@ -474,11 +482,35 @@ class TOrden{
 		$sql = "update orden set presupuestofinal = ".$monto." where idOrden = ".$this->getId();
 		$rs = $db->query($sql) or errorMySQL($db, $sql);
 		
-		$this->estado->setId(4);
+		$this->estado->setId(3);
 		$this->guardar();
 		
-		$obj->setSituacion(2);
+		//$obj->setSituacion(2);
 		$obj->guardar();
+		
+		return $rs?true:false;
+	}
+	
+	/**
+	* Desasigna la orden a un transportista
+	*
+	* @autor Hugo
+	* @access public
+	* @return boolean True si se realizó sin problemas
+	*/
+	
+	public function desasignar(){
+		if ($this->getId() == '') return false;
+		
+		$db = TBase::conectaDB();
+		$sql = "delete from asignadotransportista where idOrden = ".$this->getId();
+		$rs = $db->query($sql) or errorMySQL($db, $sql);
+		
+		$sql = "update orden set presupuestofinal = null where idOrden = ".$this->getId();
+		$rs = $db->query($sql) or errorMySQL($db, $sql);
+		
+		$this->estado->setId(2);
+		$this->guardar();
 		
 		return $rs?true:false;
 	}

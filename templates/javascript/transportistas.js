@@ -107,4 +107,55 @@ $(document).ready(function(){
 			});
 		});
 	}
+	
+	$("#winDocumentos").on("show.bs.modal", function(e){
+		$("#frmUpload").prop("action", "?mod=ctransportistas&action=upload&id=" + $(e.relatedTarget).attr("identificador"));
+		$("#winDocumentos").attr("transportista", $(e.relatedTarget).attr("identificador"));
+		getArchivos($(e.relatedTarget).attr("identificador"));
+	});
+	
+	
+	$("#winDocumentos").find(".modal-body").find(".alert").hide();
+	$("#winDocumentos").find("#frmUpload").fileupload({
+		dataType: 'json',
+		add: function (e, data) {
+			$("#winDocumentos").find(".modal-body").find(".alert").show();
+			data.submit();
+		},
+		done: function (e, data) {
+			$("#winDocumentos").find(".modal-body").find(".alert").hide();
+			if (data.result.band){
+				alert("El archivo subió con éxito");
+				getArchivos($('#winDocumentos').attr("transportista"));
+			}else
+				alert("Ocurrió un error al guardar el archivo");
+		}
+    });
+    
+	function getArchivos(transportista){
+		$.post("ctransportistas", {
+			"action": "getDocumentos",
+			"id": transportista
+		}, function(archivos){
+			$('#winDocumentos').find(".lista").find("li").remove();
+			$.each(archivos, function(i, el){
+				$('#winDocumentos').find(".lista").append('<li class="list-group-item" ruta="' + el.ruta + '"><i class="fas fa-2x fa-trash-alt text-danger"></i> <a href="' + el.ruta + '" download="' + el.nombre + '">' + el.nombre + '</a></li>');
+			});
+			
+			$('#winDocumentos').find(".lista").find("i").click(function(){
+				var el = $(this);
+				if (confirm("¿Seguro de querer eliminar?")){
+					$.post("ctransportistas", {
+						"action": "delDocumento",
+						"ruta": el.parent().attr("ruta")
+					}, function(resp){
+						if (resp.band)
+							getArchivos($('#winDocumentos').attr("transportista"));
+						else
+							alert("No se pudo eliminar la imagen");
+					}, "json");
+				}
+			});
+		}, "json");
+	}
 });

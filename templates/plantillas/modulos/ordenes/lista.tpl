@@ -17,7 +17,7 @@
 						<td>{$row.nombre}</td>
 						<td>{$row.origen_json->direccion}</td>
 						<td class="text-center">
-							<button type="button" class="btn btn-warning btn-xs" action="interesados" title="Transportistas interesados" datos='{$row.json}' data-toggle="modal" data-target="#winInteresados">{$row.interesados} / {$row.propuestas}</button>
+							<button type="button" class="btn btn-warning btn-xs" action="interesados" title="Transportistas interesados" datos='{$row.json}' data-toggle="modal" data-target="#winInteresados">{$row.interesados}</button>
 						</td>
 						<td class="text-right" style="width: 80px;">
 							<button type="button" class="btn btn-success btn-xs" action="puntos" title="Puntos de entrega" datos='{$row.json}' data-toggle="modal" data-target="#winIntermedios"><i class="fas fa-map-marker"></i></button>

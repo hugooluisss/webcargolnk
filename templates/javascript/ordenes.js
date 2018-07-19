@@ -73,7 +73,7 @@ $(document).ready(function(){
 				id: $("#id").val(), 
 				estado: $("#selEstado").val(),
 				tipoCamion: $("#selTipoCamion").val(),
-				telefono: $("#txtTelefonoReg").val(),
+				telefono: $("#txtTelefono").val(),
 				correo: $("#txtCorreo").val(),
 				descripcion: $("#txtDescripcion").val(),
 				fechaServicio: $("#txtFechaServicio").val(),
@@ -126,6 +126,7 @@ $(document).ready(function(){
 				$("#txtTelefono").val(el.telefono);
 				$("#txtFechaServicio").val(el.fechaservicio);
 				$("#txtPresupuesto").val(el.presupuesto);
+				$("#txtPeso").val(el.peso);
 				$("#txtOrigen").attr("json", el.origen);
 				$("#txtDestino").attr("json", el.destino);
 				
@@ -146,6 +147,10 @@ $(document).ready(function(){
 				}
 				
 				$('#panelTabs a[href="#add"]').tab('show');
+			});
+			
+			$("[action=interesados]").click(function(){
+				$("#winInteresados").attr("datos", $(this).attr("datos"));
 			});
 						
 			var tabla = $("#tblDatos").DataTable({

@@ -1,30 +1,30 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-07-12 13:56:34
+<?php /* Smarty version Smarty-3.1.11, created on 2018-07-18 16:12:12
          compiled from "templates/plantillas/modulos/transportistas/lista.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:4514362125b479ee60352a0-98607666%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:3172978345b4fad2c386e92-89945606%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '12261acf79315cdd6b9eb20b927e635d5b714bff' => 
     array (
       0 => 'templates/plantillas/modulos/transportistas/lista.tpl',
-      1 => 1531421790,
+      1 => 1531506654,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '4514362125b479ee60352a0-98607666',
+  'nocache_hash' => '3172978345b4fad2c386e92-89945606',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5b479ee60fa0b4_41503724',
   'variables' => 
   array (
     'lista' => 0,
     'row' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5b4fad2c43c7a4_97114268',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5b479ee60fa0b4_41503724')) {function content_5b479ee60fa0b4_41503724($_smarty_tpl) {?><table id="tblUsuarios" class="table table-bordered table-hover">
+<?php if ($_valid && !is_callable('content_5b4fad2c43c7a4_97114268')) {function content_5b4fad2c43c7a4_97114268($_smarty_tpl) {?><table id="tblDatos" class="table table-bordered table-hover">
 	<thead>
 		<tr>
 			<th>Razón social</th>
@@ -50,6 +50,10 @@ $_smarty_tpl->tpl_vars["row"]->_loop = true;
 				<td style="text-align: right">
 					<button type="button" class="btn btn-primary btn-xs" action="modificar" title="Modificar" datos='<?php echo $_smarty_tpl->tpl_vars['row']->value['json'];?>
 '><i class="fa fa-edit"></i></button>
+					
+					<button type="button" class="btn btn-success btn-xs" title="documentos" identificador="<?php echo $_smarty_tpl->tpl_vars['row']->value['idTransportista'];?>
+" data-toggle="modal" data-target="#winDocumentos"><i class="fa fa-file"></i></button>
+					
 					<button type="button" class="btn btn-danger btn-xs" action="eliminar" title="Eliminar" identificador="<?php echo $_smarty_tpl->tpl_vars['row']->value['idTransportista'];?>
 "><i class="fa fa-times"></i></button>
 				</td>

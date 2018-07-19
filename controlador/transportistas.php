@@ -4,7 +4,7 @@ switch($objModulo->getId()){
 	case 'transportistas':
 		$db = TBase::conectaDB();
 		global $sesion;
-		$sql = "select * from tipocamion";
+		$sql = "select * from tipocamion where visible = true";
 		
 		$rs = $db->query($sql) or errorMySQL($db, $sql);
 		$datos = array();
@@ -30,6 +30,7 @@ switch($objModulo->getId()){
 		$smarty->assign("lista", $datos);
 	break;
 	case 'ctransportistas':
+		$documentos = "repositorio/transportistas/documentos/";
 		switch($objModulo->getAction()){
 			case 'add':
 				$db = TBase::conectaDB();
@@ -101,6 +102,48 @@ switch($objModulo->getId()){
 					echo json_encode(array("band" => $email->send(), "mensaje" => "Se trató de enviar"));
 				}else
 					echo json_encode(array("band" => false));
+			break;
+			case 'upload':
+				$result = false;
+				if ($_GET['id'] <> ''){
+					if(isset($_FILES['upl']) && $_FILES['upl']['error'] == 0){
+						$carpeta = $documentos."transportista_".$_GET['id']."/";
+						if (!file_exists($carpeta))
+							mkdir($carpeta, 0755);
+							
+						$archivo = $_POST['nombre'] == ''?$_FILES['upl']['name']:($_POST['nombre'].".".end(explode(".", $_FILES['upl']['name'])));
+						if(move_uploaded_file($_FILES['upl']['tmp_name'], $carpeta.$archivo)){
+							chmod($carpeta.$archivo, 0775);
+							$result = true;
+						}
+					}
+				}
+				
+				$smarty->assign("json", array("band" => $result));
+			break;
+			case 'getDocumentos':
+				$carpeta = $documentos."transportista_".$_POST['id']."/";
+				$archivos = array();
+				
+				if (file_exists($carpeta)){
+					$gestor_dir = opendir($carpeta);
+					while (false !== ($nombre_fichero = readdir($gestor_dir))){
+						if (!in_array($nombre_fichero, array(".", "..", ".DS_store"))){
+							$datos = Array();
+							$datos["nombre"] = $nombre_fichero;
+							$datos["ruta"] = $carpeta.$nombre_fichero;
+							array_push($archivos, $datos);
+						}
+					}
+				}
+				
+				$smarty->assign("json", $archivos);
+			break;
+			case 'delDocumento':
+				if(unlink($_POST['ruta']))
+					$smarty->assign("json", array("band" => true));
+				else
+					$smarty->assign("json", array("band" => false));
 			break;
 		}
 	break;

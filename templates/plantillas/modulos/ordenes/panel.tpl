@@ -91,7 +91,7 @@
 					</div>
 				</div>
 				<div class="card-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+					<button type="reset" id="btnReset" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 					<button type="submit" class="btn btn-primary">Guardar</button>
 					<input type="hidden" id="id" name="id" value=""/>
 				</div>
@@ -103,3 +103,4 @@
 <input type="hidden" id="auxOrden" value="{$orden}"/>
 
 {include file=$PAGE.rutaModulos|cat:"modulos/ordenes/winMapa.tpl"}
+{include file=$PAGE.rutaModulos|cat:"modulos/ordenes/winInteresados.tpl"}

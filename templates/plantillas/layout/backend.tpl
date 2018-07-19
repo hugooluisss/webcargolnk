@@ -14,6 +14,7 @@
 		<link rel="stylesheet/less" type="text/css" href="{$PAGE.ruta}build/style.less" />
 		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet" />
 		<link rel="stylesheet" href="{$PAGE.ruta}plugins/fontawesome/css/all.css" />
+		<link rel="stylesheet" href="{$PAGE.ruta}plugins/upload/css/jquery.fileupload.css" />
 		
 		<script src="https://maps.googleapis.com/maps/api/js?key={$PAGE.inisistema.maps.key}"></script>
 	</head>
@@ -75,6 +76,12 @@
 		<!-- Date time picker-->
 		<link rel="stylesheet" type="text/css" href="{$PAGE.ruta}plugins/datetimepicker/jquery.datetimepicker.min.css"/>
 		<script type="text/javascript" src="{$PAGE.ruta}plugins/datetimepicker/jquery.datetimepicker.full.min.js"></script>
+		
+		<!-- Upload -->
+		<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+		<script src="{$PAGE.ruta}plugins/upload/js/jquery.iframe-transport.js"></script>
+		<!-- The basic File Upload plugin -->
+		<script src="{$PAGE.ruta}plugins/upload/js/jquery.fileupload.js"></script>
 
 	    {foreach from=$PAGE.scriptsJS item=script}
 			<script type="text/javascript" src="{$script}?m={rand()}"></script>

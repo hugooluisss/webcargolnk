@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-07-12 09:52:13
+<?php /* Smarty version Smarty-3.1.11, created on 2018-07-18 14:00:55
          compiled from "templates/plantillas/layout/frontend.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:15093986545b463cb6881860-50893981%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:16333415195b4f8273e70357-62638616%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'effc1585595657aaacf5149767168fa8be74b164' => 
     array (
       0 => 'templates/plantillas/layout/frontend.tpl',
-      1 => 1531346456,
+      1 => 1531940453,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '15093986545b463cb6881860-50893981',
+  'nocache_hash' => '16333415195b4f8273e70357-62638616',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5b463cb6964f77_85002897',
+  'unifunc' => 'content_5b4f8274154593_43173457',
   'variables' => 
   array (
     'PAGE' => 0,
@@ -24,13 +24,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5b463cb6964f77_85002897')) {function content_5b463cb6964f77_85002897($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5b4f8274154593_43173457')) {function content_5b4f8274154593_43173457($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<!-- Tell the browser to be responsive to screen width -->
 	    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	    <base href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['url'];?>
+index.php" target="_top">
 		<title><?php echo $_smarty_tpl->tpl_vars['PAGE']->value['empresaAcronimo'];?>
 </title>
 		<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>

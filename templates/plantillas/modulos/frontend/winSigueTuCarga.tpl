@@ -18,7 +18,7 @@
 						<div class="col-6 offset-3">
 							<input id="txtCodigo" name="txtCodigo" class="form-control" placeholder="Código de carga" type="text" />
 							<br />
-							<button type="button" class="btn btn-danger btn-block">Consultar</button>
+							<button type="submit" class="btn btn-danger btn-block">Consultar</button>
 						</div>
 					</div>
 				</form>

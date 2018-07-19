@@ -1,30 +1,30 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-07-12 10:22:21
+<?php /* Smarty version Smarty-3.1.11, created on 2018-07-17 16:20:12
          compiled from "templates/plantillas/layout/backend.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:3250420035b463c6bb87359-78537734%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:18221832895b4e5d8ccfb7d7-62441125%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'fb27fbafb15cd6741b5ed051c431f5031245501a' => 
     array (
       0 => 'templates/plantillas/layout/backend.tpl',
-      1 => 1531346456,
+      1 => 1531493654,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3250420035b463c6bb87359-78537734',
+  'nocache_hash' => '18221832895b4e5d8ccfb7d7-62441125',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5b463c6bc4fe60_70537613',
   'variables' => 
   array (
     'PAGE' => 0,
     'script' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5b4e5d8cef1694_25754899',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5b463c6bc4fe60_70537613')) {function content_5b463c6bc4fe60_70537613($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/Library/WebServer/Documents/cargolink-web/librerias/smarty/plugins/modifier.date_format.php';
+<?php if ($_valid && !is_callable('content_5b4e5d8cef1694_25754899')) {function content_5b4e5d8cef1694_25754899($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/Library/WebServer/Documents/cargolink-web/librerias/smarty/plugins/modifier.date_format.php';
 ?><!DOCTYPE html>
 <html>
 	<head>
@@ -46,6 +46,8 @@ build/style.less" />
 		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet" />
 		<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 plugins/fontawesome/css/all.css" />
+		<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/upload/css/jquery.fileupload.css" />
 		
 		<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['inisistema']['maps']['key'];?>
 "></script>
@@ -125,6 +127,14 @@ plugins/DataTables/datatables.min.js"></script>
 plugins/datetimepicker/jquery.datetimepicker.min.css"/>
 		<script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 plugins/datetimepicker/jquery.datetimepicker.full.min.js"></script>
+		
+		<!-- Upload -->
+		<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+		<script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/upload/js/jquery.iframe-transport.js"></script>
+		<!-- The basic File Upload plugin -->
+		<script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/upload/js/jquery.fileupload.js"></script>
 
 	    <?php  $_smarty_tpl->tpl_vars['script'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['script']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['PAGE']->value['scriptsJS']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

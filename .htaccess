@@ -10,4 +10,4 @@ php_value post_max_size 700M
 
 RewriteRule ^([0-9a-zA-Z]*)\/?$ index.php?mod=$1 [QSA,L]
 RewriteRule ^([0-9a-zA-Z]*)/$ index.php?mod=$1 [QSA,L]
-RewriteRule ^([0-9a-zA-Z]*)/(\d*)\/$ index.php?mod=$1&id=$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z]*)/([0-9]*)-([0-9a-zA-Z]*)\/$ index.php?mod=$1&id=$2&id2=$3 [QSA,L]

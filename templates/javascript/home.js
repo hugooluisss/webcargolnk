@@ -121,6 +121,7 @@ $(document).ready(function(){
 				if (resp.results.length == 0)
 					alert("No hay resultados");
 				else{
+					console.log(resp);
 					var lugar = resp.results[0];
 					posicion.latitude = lugar.geometry.location.lat;
 					posicion.longitude = lugar.geometry.location.lng;
@@ -188,4 +189,33 @@ $(document).ready(function(){
 			}
 		});
 	}
+	
+	
+	$("#frmSigueCarga").validate({
+		debug: true,
+		rules: {
+			txtCodigo: "required"
+		},
+		wrapper: 'span', 
+		submitHandler: function(form){
+			form = $(form);
+			var obj = new TOrden;
+			obj.getIdByFolio({
+				"codigo": form.find("#txtCodigo").val(),
+				fn: {
+					before: function(){
+						form.prop("disabled", true);
+					},
+					after: function(resp){
+						form.prop("disabled", false);
+						if (!resp.band){
+							alert("No encontramos el código, inténtalo nuevamente");
+							form.find("#txtCodigo").focus();
+						}else
+							location.href = "administracion/" + resp.id + "-" + form.find("#txtCodigo").val() + "/";
+					}
+				}
+			});
+		}
+	});
 });

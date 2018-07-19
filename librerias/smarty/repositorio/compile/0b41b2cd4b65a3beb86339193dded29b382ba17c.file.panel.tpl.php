@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-07-12 10:22:29
+<?php /* Smarty version Smarty-3.1.11, created on 2018-07-17 16:20:12
          compiled from "templates/plantillas/modulos/ordenes/panel.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:112122305b463c6bc56763-18963708%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:11048089165b4e5d8cf0e334-14780163%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0b41b2cd4b65a3beb86339193dded29b382ba17c' => 
     array (
       0 => 'templates/plantillas/modulos/ordenes/panel.tpl',
-      1 => 1531346456,
+      1 => 1531861650,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '112122305b463c6bc56763-18963708',
+  'nocache_hash' => '11048089165b4e5d8cf0e334-14780163',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5b463c6bc88464_91223891',
   'variables' => 
   array (
     'tipoCamion' => 0,
@@ -26,8 +24,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'PAGE' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5b4e5d8d0543f5_13383468',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5b463c6bc88464_91223891')) {function content_5b463c6bc88464_91223891($_smarty_tpl) {?><div class="row">
+<?php if ($_valid && !is_callable('content_5b4e5d8d0543f5_13383468')) {function content_5b4e5d8d0543f5_13383468($_smarty_tpl) {?><div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">
 			Cargas
@@ -136,7 +136,7 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 					</div>
 				</div>
 				<div class="card-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+					<button type="reset" id="btnReset" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 					<button type="submit" class="btn btn-primary">Guardar</button>
 					<input type="hidden" id="id" name="id" value=""/>
 				</div>
@@ -149,4 +149,6 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 "/>
 
 <?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['PAGE']->value['rutaModulos']).("modulos/ordenes/winMapa.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
+<?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['PAGE']->value['rutaModulos']).("modulos/ordenes/winInteresados.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 <?php }} ?>

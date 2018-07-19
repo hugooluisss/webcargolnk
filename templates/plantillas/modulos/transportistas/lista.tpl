@@ -1,4 +1,4 @@
-<table id="tblUsuarios" class="table table-bordered table-hover">
+<table id="tblDatos" class="table table-bordered table-hover">
 	<thead>
 		<tr>
 			<th>Razón social</th>
@@ -15,6 +15,9 @@
 				<td>{$row.telefono}</td>
 				<td style="text-align: right">
 					<button type="button" class="btn btn-primary btn-xs" action="modificar" title="Modificar" datos='{$row.json}'><i class="fa fa-edit"></i></button>
+					
+					<button type="button" class="btn btn-success btn-xs" title="documentos" identificador="{$row.idTransportista}" data-toggle="modal" data-target="#winDocumentos"><i class="fa fa-file"></i></button>
+					
 					<button type="button" class="btn btn-danger btn-xs" action="eliminar" title="Eliminar" identificador="{$row.idTransportista}"><i class="fa fa-times"></i></button>
 				</td>
 			</tr>
