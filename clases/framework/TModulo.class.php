@@ -14,10 +14,8 @@ class TModulo{
 	private $controlador;
 	private $capa;
 	
-	public function TModulo($id = null){
+	public function __construct($id = null){
 		$this->setId($id);
-		
-		return true;
 	}
 	
 	public function setId($id = null){

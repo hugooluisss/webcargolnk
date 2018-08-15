@@ -29,7 +29,7 @@ class TTransportista{
 	* @access public
 	* @param int $id identificador del objeto
 	*/
-	public function TTransportista($id = ''){
+	public function __construct($id = ''){
 		$this->tipoCamion = new TTipoCamion;
 		$this->situacion = 0;
 		$this->setId($id);		
@@ -319,7 +319,7 @@ class TTransportista{
 	* @return boolean True si se realizó sin problemas
 	*/
 	
-	public function setSituacion($val = "I"){
+	public function setSituacion($val = 0){
 		$this->situacion = $val;
 		return true;
 	}
@@ -373,7 +373,7 @@ class TTransportista{
 				pass = '".$this->getPass()."',
 				calificacion = ".$this->getCalificacion().",
 				aprobado = ".$this->getAprobado().",
-				situacion = '".$this->getSituacion()."',
+				situacion = ".$this->getSituacion().",
 				telefono = '".$this->getTelefono()."'
 			WHERE idTransportista = ".$this->getId();
 			

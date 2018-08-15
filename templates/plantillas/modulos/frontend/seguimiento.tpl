@@ -14,5 +14,5 @@
 	<div id="reporte" class="tab-pane container">
 	</div>
 </div>
-
+<input type="hidden" id="datosOrden" value='{$datosOrden}' />
 <input type="hidden" id="orden" value="{$PAGE.GET.id}" />

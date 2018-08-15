@@ -15,7 +15,7 @@ class TError{
 * Metodo Constructor
 * Llama al constructor padre para hacer las conexiones
 */
-	function TError($archivo){
+	function __construct($archivo){
 		$this->archivo = $archivo;
 	}
 

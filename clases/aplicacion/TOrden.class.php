@@ -27,7 +27,7 @@ class TOrden{
 	* @access public
 	* @param int $id identificador del objeto
 	*/
-	public function TOrden($id = ''){
+	public function __construct($id = ''){
 		$this->estado = new TEstado(1);
 		$this->tipoCamion = new TTipoCamion();
 		$this->transportista = new TTransportista();
@@ -527,13 +527,34 @@ class TOrden{
 		if ($this->getId() == '') return false;
 		
 		$db = TBase::conectaDB();
-		$sql = "update asignado set comentarios = '".$comentario."' where idOrden = ".$this->getId();
+		$sql = "update asignadotransportista set comentarios = '".$comentario."' where idOrden = ".$this->getId();
 		$rs = $db->query($sql) or errorMySQL($db, $sql);
 
 		$this->estado->setId(5);
 		$this->guardar();
 		
 		return $rs?true:false;
+	}
+	
+	/**
+	* Guarda una posicion
+	*
+	* @autor Hugo
+	* @access public
+	* @return boolean True si se realizó sin problemas
+	*/
+	
+	public function addPosicion($latitude, $longitude, $gps = ''){
+		if ($this->getId() == '') return false;
+		if ($latitude == '') return false;
+		if ($longitude == '') return false;
+		if ($gps == '') $gps = array();
+		
+		$db = TBase::conectaDB();
+		$sql = "insert into posicion(idOrden, fecha, latitude, longitude, gps) values (".$this->getId().", '".date("Y-m-d H:i:s")."', '".$latitude."', '".$longitude."', '".$db->real_escape_string(json_encode($gps))."')";
+		$rs = $db->query($sql) or errorMySQL($db, $sql);
+		
+		return true;
 	}
 }
 ?>

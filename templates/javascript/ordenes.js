@@ -324,5 +324,15 @@ $(document).ready(function(){
 		}catch(e){
 			alert("No se pudo obtener la lista de interesados");
 		}
-	})
+	});
+	
+	$("#winReporte").on('show.bs.modal', function(e){
+		var el = jQuery.parseJSON($(e.relatedTarget).attr("datos"));
+		$("#winReporte").find(".modal-body").html("");
+		$.post("reporte", {
+			orden: el.idOrden
+		}, function(resp){
+			$("#winReporte").find(".modal-body").html(resp);
+		});
+	});
 });

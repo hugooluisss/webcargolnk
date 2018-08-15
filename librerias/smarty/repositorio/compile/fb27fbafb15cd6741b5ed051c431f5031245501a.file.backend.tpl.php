@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2018-07-17 16:20:12
+<?php /* Smarty version Smarty-3.1.11, created on 2018-08-14 22:30:00
          compiled from "templates/plantillas/layout/backend.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:18221832895b4e5d8ccfb7d7-62441125%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:9505464025b739e38e2fdb8-11167962%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '18221832895b4e5d8ccfb7d7-62441125',
+  'nocache_hash' => '9505464025b739e38e2fdb8-11167962',
   'function' => 
   array (
   ),
@@ -22,9 +22,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5b4e5d8cef1694_25754899',
+  'unifunc' => 'content_5b739e39137927_14811959',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5b4e5d8cef1694_25754899')) {function content_5b4e5d8cef1694_25754899($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/Library/WebServer/Documents/cargolink-web/librerias/smarty/plugins/modifier.date_format.php';
+<?php if ($_valid && !is_callable('content_5b739e39137927_14811959')) {function content_5b739e39137927_14811959($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/Library/WebServer/Documents/cargolink-web/librerias/smarty/plugins/modifier.date_format.php';
 ?><!DOCTYPE html>
 <html>
 	<head>

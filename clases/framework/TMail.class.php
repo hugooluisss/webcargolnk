@@ -17,7 +17,7 @@ class TMail{
 * Metodo Constructor
 * Llama al constructor padre para hacer las conexiones
 */
-	public function TMail(){
+	public function __construct(){
 		global $ini;
 		$this->phpMailer = new PHPMailer();
 		$datos = $rs->fields;

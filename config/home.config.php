@@ -11,6 +11,7 @@ $conf['home'] = array(
 	
 $conf['administracion'] = array(
 	'vista' => 'frontend/seguimiento.tpl',
+	'controlador' => "frontend.php",
 	'titulo' => "Panel de seguimiento para el cliente",
 	'seguridad' => false,
 	'js' => array('transportista.class.js', 'orden.class.js'),

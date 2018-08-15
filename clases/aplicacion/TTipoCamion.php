@@ -17,7 +17,7 @@ class TTipoCamion{
 	* @access public
 	* @param int $id identificador del objeto
 	*/
-	public function TTipoCamion($id = ''){
+	public function __construct($id = ''){
 		$this->setId($id);		
 		return true;
 	}

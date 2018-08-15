@@ -26,8 +26,6 @@ setlocale(LC_NUMERIC, "en_US");
 date_default_timezone_set("America/Mexico_City");
 
 #librerias
-require('librerias/fpdf/fpdf.php');
-require('librerias/fpdf/tfpdf.php');
 require('librerias/pushbots/PushBots.class.php');
 
 ini_set("include_path", ini_get("include_path").PATH_SEPARATOR.dirname(__FILE__)."/librerias/pear/");

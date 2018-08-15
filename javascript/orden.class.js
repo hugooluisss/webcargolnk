@@ -70,4 +70,19 @@ TOrden = function(){
 					datos.fn.after(data);
 			}, "json");
 	}
+	
+	this.getLastPosicion = function(datos){
+		if (datos.fn.before !== undefined) datos.fn.before();
+		
+		$.post('cordenes', {
+				"orden": datos.id,
+				"action": "getLastPosicion"
+			}, function(data){
+				if (data.band == false)
+					console.log("No se realizó la desasignación");
+					
+				if (datos.fn.after !== undefined)
+					datos.fn.after(data);
+			}, "json");
+	}
 };

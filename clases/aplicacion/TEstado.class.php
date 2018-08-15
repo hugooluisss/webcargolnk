@@ -17,7 +17,7 @@ class TEstado{
 	* @access public
 	* @param int $id identificador del objeto
 	*/
-	public function TEstado($id = ''){
+	public function __construct($id = ''){
 		$this->setId($id);
 		
 		return true;

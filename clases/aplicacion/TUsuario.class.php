@@ -21,7 +21,7 @@ class TUsuario{
 	* @access public
 	* @param int $id identificador del objeto
 	*/
-	public function TUsuario($id = ''){
+	public function __construct($id = ''){
 		$this->setId($id);		
 		return true;
 	}

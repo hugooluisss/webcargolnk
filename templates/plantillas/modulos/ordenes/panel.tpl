@@ -89,6 +89,8 @@
 							<textarea id="txtDestino" rows="4" name="txtDestino" class="form-control" readonly="true"></textarea>
 						</div>
 					</div>
+					<div id="dvReporteFinal">
+					</div>
 				</div>
 				<div class="card-footer">
 					<button type="reset" id="btnReset" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -104,3 +106,5 @@
 
 {include file=$PAGE.rutaModulos|cat:"modulos/ordenes/winMapa.tpl"}
 {include file=$PAGE.rutaModulos|cat:"modulos/ordenes/winInteresados.tpl"}
+{include file=$PAGE.rutaModulos|cat:"modulos/ordenes/winSeguimiento.tpl"}
+{include file=$PAGE.rutaModulos|cat:"modulos/ordenes/winReporte.tpl"}

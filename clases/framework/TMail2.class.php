@@ -18,7 +18,7 @@ class TMail2{
 	public $adjuntos;
 	private $tema;
 
-	public function TMail2(){
+	public function __construct(){
 		global $ini;
 		$this->destinos = array();
 		$this->contestarA = "";
